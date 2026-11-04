@@ -1,0 +1,42 @@
+---
+/* La raíz del sitio. Lleva a cada visitante a su idioma (el último que eligió; si no, el del
+   navegador; si no, español). Sin JavaScript muestra un selector de idioma. */
+import '../styles/tokens.css';
+import '../styles/bundle.css';
+import '../styles/site.css';
+import { DEFAULT_LANG, LANGS, LANG_NAMES, useTranslations } from '../i18n/ui';
+import { asset, homeUrl } from '../lib/pages';
+
+const homes = Object.fromEntries(LANGS.map((l) => [l, homeUrl(l)]));
+const fallback = DEFAULT_LANG;
+---
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catatumbo</title>
+<script is:inline define:vars={{ homes, fallback }}>
+  var saved = null;
+  try { saved = localStorage.getItem('ct.lang'); } catch (e) {}
+  var wanted = [saved].concat((navigator.languages || [navigator.language]).map(function (l) { return (l || '').slice(0, 2).toLowerCase(); }));
+  var pick = wanted.filter(function (l) { return l && homes[l]; })[0] || fallback;
+  location.replace(homes[pick]);
+</script>
+<meta name="robots" content="noindex">
+<link rel="icon" href={asset('icons/catatumbo.svg')} type="image/svg+xml">
+</head>
+<body>
+  <main class="ct-section picker" data-theme="night">
+    <p class="ct-brand-mark display-brand" aria-hidden="true">C.</p>
+    <ul>
+      {LANGS.map((l) => (
+        <li lang={l}>
+          <a class="ct-text-link mono-action" href={homes[l]} hreflang={l}>{LANG_NAMES[l]} <span aria-hidden="true">↘</span></a>
+          <small class="mono-eyebrow">{useTranslations(l)('picker.title')}</small>
+        </li>
+      ))}
+    </ul>
+  </main>
+</body>
+</html>

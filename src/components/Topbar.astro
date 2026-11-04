@@ -1,0 +1,67 @@
+---
+/* Marca, menú, bandera, selector de idioma (desplegable) y (en teléfonos) el botón del menú. */
+import Brand from './Brand.astro';
+import { LANG_NAMES, useTranslations, type Lang } from '../i18n/ui';
+import { asset, pagesIn, pageUrl, type PageKey } from '../lib/pages';
+
+interface Props { lang: Lang; current?: PageKey; alternates: { lang: Lang; href: string }[] }
+const { lang, current, alternates } = Astro.props;
+const t = useTranslations(lang);
+const nav = await pagesIn(lang);
+---
+<header class="ct-topbar">
+  <Brand lang={lang} />
+  <nav class="ct-nav" id="nav" aria-label={t('nav.aria')}>
+    {nav.map((p) => (
+      <a href={pageUrl(p)} class="mono-nav" aria-current={p.data.key === current ? 'page' : undefined}>{p.data.title}</a>
+    ))}
+  </nav>
+  <div class="ct-nav-actions">
+    <img class="ct-flag" src={asset('img/venezuela.svg')} width="30" height="20" alt={t('flag.alt')}>
+    <!-- Selector de idioma: un desplegable nativo (<details>), así se abre también sin JavaScript. Lista todos los
+         idiomas de LANGS, sean cuantos sean; cada uno lleva a la misma página en ese idioma. -->
+    <details class="lang-menu" data-lang-menu>
+      <summary class="ct-language" aria-label={`${t('nav.lang')}: ${LANG_NAMES[lang]}`}>
+        {lang.toUpperCase()}
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m2 3.5 3 3 3-3"/></svg>
+      </summary>
+      <ul>
+        {alternates.map((v) => (
+          <li>
+            <a class="mono-nav" href={v.href} hreflang={v.lang} lang={v.lang} aria-current={v.lang === lang ? 'true' : undefined}>
+              <span>{LANG_NAMES[v.lang]}</span> <small>{v.lang.toUpperCase()}</small>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+    <button class="ct-menu-button" id="menu-toggle" type="button" aria-label={t('menu.open')} aria-expanded="false" aria-controls="nav">
+      <svg class="ct-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="i-menu" d="M4 5h16M4 12h16M4 19h16"/><path class="i-x" d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+</header>
+
+<script is:inline>
+  /* Menú en teléfonos: el botón abre y cierra la navegación. */
+  (function () {
+    var button = document.getElementById('menu-toggle');
+    var nav = document.getElementById('nav');
+    button.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      button.classList.toggle('is-open', open);
+      button.setAttribute('aria-expanded', String(open));
+    });
+  })();
+  /* Selector de idioma: se cierra al pulsar fuera o con Escape, y recuerda el idioma elegido para la próxima visita
+     a la raíz del sitio. */
+  (function () {
+    var menu = document.querySelector('[data-lang-menu]');
+    document.addEventListener('click', function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+    menu.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
+    });
+    menu.querySelectorAll('a[hreflang]').forEach(function (a) {
+      a.addEventListener('click', function () { try { localStorage.setItem('ct.lang', a.hreflang); } catch (e) {} });
+    });
+  })();
+</script>

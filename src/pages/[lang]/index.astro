@@ -1,0 +1,86 @@
+---
+/* Página de inicio, una por idioma: portada, bienvenida, las páginas de la guía como tarjetas, consejos de viaje. */
+import { Image } from 'astro:assets';
+import palmsImage from '../../assets/img/catatumbo-02.jpg';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Icon, { type IconName } from '../../components/Icon.astro';
+import { LANGS, useTranslations, type Lang, type UIKey } from '../../i18n/ui';
+import { pagesIn, pageUrl, urlOf, type Page, type PageKey } from '../../lib/pages';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const pages = (await pagesIn(lang)) as (Page & { data: { key: keyof typeof CARD } })[];
+const lightning = await urlOf('lightning', lang);
+const visit = await urlOf('visit', lang);
+
+/* Colores e iconos de las tarjetas, por página. La de privacidad no sale en la portada (`menu: false`). */
+const CARD: Record<Exclude<PageKey, 'privacy'>, { tone: string; icon: IconName }> = {
+  lightning: { tone: 'communities', icon: 'bolt' },
+  visit: { tone: 'protected', icon: 'compass' },
+  tours: { tone: 'protected', icon: 'boat' },
+  places: { tone: 'heritage', icon: 'stilts' },
+  history: { tone: 'public', icon: 'book' },
+  today: { tone: 'communities', icon: 'moon' },
+};
+const TIPS: { icon: IconName; title: UIKey; body: UIKey }[] = [
+  { icon: 'boat', title: 'tips.c1h', body: 'tips.c1' },
+  { icon: 'moon', title: 'tips.c2h', body: 'tips.c2' },
+  { icon: 'backpack', title: 'tips.c3h', body: 'tips.c3' },
+  { icon: 'shield', title: 'tips.c4h', body: 'tips.c4' },
+];
+---
+<Base lang={lang} title={t('site.title')} description={t('site.desc')}>
+  <Hero lang={lang} cta={lightning} />
+
+  <section class="ct-section welcome" id="bienvenida">
+    <p class="watermark welcome-mark" aria-hidden="true">Catatumbo</p>
+    <div class="welcome-grid">
+      <div class="welcome-head">
+        <div class="ct-index mono-eyebrow">{t('welcome.index')}</div>
+        <h2 class="ct-header-title display-section">{t('welcome.title')}</h2>
+      </div>
+      <figure class="welcome-photo">
+        <Image src={palmsImage} alt={t('welcome.photoAlt')} widths={[420, 640, 900]} sizes="(max-width: 650px) 100vw, 34vw" format="webp" />
+      </figure>
+      <div class="welcome-copy">
+        <p class="ct-body copy-body">{t('welcome.body')}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ct-section ct-section-sunk">
+    <div class="ct-index mono-eyebrow">{t('cards.index')}</div>
+    <h2 class="ct-header-title display-section">{t('cards.title')}</h2>
+    <div class="ct-places">
+      {pages.map((p, i) => (
+        <article class={`ct-place ct-place-${CARD[p.data.key].tone}`}>
+          <span class="card-icon"><Icon name={CARD[p.data.key].icon} size={26} /></span>
+          <span class="ct-place-number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="display-card">{p.data.title}</h3>
+          <p class="copy-card">{p.data.description}</p>
+          <a href={pageUrl(p)}>{t('card.go')}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="ct-section">
+    <div class="ct-index mono-eyebrow">{t('tips.index')}</div>
+    <h2 class="ct-header-title display-section">{t('tips.title')}</h2>
+    <ul class="tips">
+      {TIPS.map((tip) => (
+        <li>
+          <span class="tip-icon"><Icon name={tip.icon} size={34} /></span>
+          <span class="tip-title display-list">{t(tip.title)}</span>
+          <span class="tip-body copy-small">{t(tip.body)}</span>
+        </li>
+      ))}
+    </ul>
+    <a class="ct-button ct-button-outline tips-more" href={visit}><span>{t('tips.more')}</span><Icon name="arrow" size={16} /></a>
+  </section>
+</Base>

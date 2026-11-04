@@ -1,0 +1,11 @@
+---
+/* La insignia de "Catatumbo Digital": dos rayos sobre una red de circuitos, montañas y el lago,
+   en una nube azul marino y cian. Calcada del logo del cliente (public/img/catatumbo-digital.svg:
+   solo la insignia, sin fondo ni letras). Va en un archivo aparte para que el navegador la guarde en caché.
+   Decorativa: el texto de al lado la nombra. */
+import { asset } from '../lib/pages';
+
+interface Props { height?: number; class?: string }
+const { height = 48, class: cls } = Astro.props;
+---
+<img class={cls} src={asset('img/catatumbo-digital.svg')} width={Math.round(height * 452 / 310)} height={height} alt="" />

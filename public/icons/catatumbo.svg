@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#142d31"></rect>
+  <path d="M72 354 213 105l19 114 79-87-29 115 142 106H72Z" fill="#285d60"></path>
+  <path d="m283 65-57 152h51l-34 123 123-181h-59l40-94Z" fill="#e2bd60"></path>
+  <path d="M74 367h363" stroke="#e9e4d4" stroke-width="8"></path>
+  <text x="74" y="434" fill="#e9e4d4" font-family="Georgia,serif" font-size="48">CATATUMBO</text>
+</svg>

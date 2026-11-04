@@ -1,0 +1,42 @@
+---
+/* Todas las páginas: <head>, barra superior, la página en sí y el pie. */
+import '../styles/tokens.css';
+import '../styles/bundle.css';
+import '../styles/site.css';
+import frauncesUrl from '../assets/fonts/Fraunces-Variable.woff2?url';
+import dmSansUrl from '../assets/fonts/DMSans-Variable.woff2?url';
+import Topbar from '../components/Topbar.astro';
+import Footer from '../components/Footer.astro';
+import type { Lang } from '../i18n/ui';
+import { alternates as findAlternates, asset, type PageKey } from '../lib/pages';
+
+interface Props { lang: Lang; title: string; description: string; page?: PageKey }
+const { lang, title, description, page } = Astro.props;
+const alternates = await findAlternates(page);
+const site = Astro.site;
+/* El build de GitHub Pages es una vista previa para el cliente: que no aparezca en los buscadores. */
+const preview = import.meta.env.PUBLIC_DEPLOY_TARGET === 'pages';
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{title}</title>
+<meta name="description" content={description}>
+{preview && <meta name="robots" content="noindex">}
+<meta name="theme-color" content="#142d31">
+<link rel="icon" href={asset('icons/catatumbo.svg')} type="image/svg+xml">
+<link rel="apple-touch-icon" href={asset('icons/catatumbo-192.png')}>
+{site && alternates.map((v) => <link rel="alternate" hreflang={v.lang} href={new URL(v.href, site).href}>)}
+<link rel="preload" href={frauncesUrl} as="font" type="font/woff2" crossorigin>
+<link rel="preload" href={dmSansUrl} as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+  <Topbar lang={lang} current={page} alternates={alternates} />
+  <main>
+    <slot />
+  </main>
+  <Footer lang={lang} />
+</body>
+</html>

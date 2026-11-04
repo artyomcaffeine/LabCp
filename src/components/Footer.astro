@@ -1,0 +1,24 @@
+---
+import LogoMark from './LogoMark.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { homeUrl, pagesIn, pageUrl, urlOf } from '../lib/pages';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const nav = await pagesIn(lang);
+const privacy = await urlOf('privacy', lang);
+---
+<footer class="ct-footer" data-theme="night">
+  <a class="ct-brand footer-logo" href={homeUrl(lang)} aria-label={t('brand.aria')}>
+    <LogoMark height={48} />
+    <span><b class="mono-brand">{t('footer.logoName')}</b><small class="mono-credit">{t('footer.logoTagline')}</small></span>
+  </a>
+  <nav class="footer-nav" aria-label={t('footer.nav')}>
+    {nav.map((p) => <a class="mono-nav" href={pageUrl(p)}>{p.data.title}</a>)}
+  </nav>
+  <span class="mono-credit">{t('footer.credits')}</span>
+  <a class="mono-credit" href={privacy}>{t('footer.privacy')}</a>
+  <a class="mono-credit" href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noreferrer">CC BY-SA 2.0 ↗</a>
+  <span class="ct-footer-end mono-credit">Zulia · VE</span>
+</footer>

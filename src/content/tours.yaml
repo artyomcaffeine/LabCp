@@ -1,0 +1,14 @@
+# Operadores de tours de la zona. Una sola lista para los 4 idiomas; se muestra en la página "tours".
+# Antes de añadir uno, comprueba los criterios de PLAN.md (Fase 2) y pon la fecha de revisión.
+# Plantilla (quita los # y rellena):
+#
+# - id: nombre-corto              # único, en minúsculas
+#   name: Nombre del operador
+#   url: https://ejemplo.com/
+#   base: Mérida                  # desde dónde sale la excursión
+#   langs: [es, en]               # idiomas del guía (códigos ISO)
+#   reviewed: 2026-10-25          # última vez que se comprobó
+#   note:                         # opcional, una frase por idioma
+#     es: Tres días con noche en un palafito.
+#     en: Three days with a night in a stilt house.
+[]

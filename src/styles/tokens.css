@@ -1,0 +1,160 @@
+/* Catatumbo Field Guide — generated from tokens.json */
+@font-face { font-family: 'Fraunces'; src: url('../assets/fonts/Fraunces-Variable.woff2') format('woff2'); font-weight: 500 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DM Sans'; src: url('../assets/fonts/DMSans-Variable.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DM Mono'; src: url('../assets/fonts/DMMono-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DM Mono'; src: url('../assets/fonts/DMMono-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+:root {
+  --ink: #192c30;
+  --deep: #142d31;
+  --teal: #285d60;
+  --paper: #e9e4d4;
+  --gold: #d4ac50;
+  --gold-soft: #ebc96e;
+  --rust: #b3654b;
+  --cream: #f0eadb;
+  --line: rgba(25, 44, 48, .28);
+  --surface: var(--paper);
+  --surface-sunk: #e2dece;
+  --surface-panel: #dcd8c8;
+  --surface-band: #d6cfba;
+  --split-text: #485759;
+  --split-tag: #99543f;
+  --text: var(--ink);
+  --text-body: #354649;
+  --text-muted: #566264;
+  --text-meta: #667577;
+  --text-index: #9b553f;
+  --link: #315e5e;
+  --warning: #874a38;
+  --rule: var(--line);
+  --rule-soft: rgba(25, 44, 48, .14);
+  --action: var(--teal);
+  --action-hover: #397377;
+  --on-action: #f5edd7;
+  --action-outline: var(--teal);
+  --on-action-outline: var(--teal);
+  --focus: var(--rust);
+  --selection: var(--gold);
+  --panel-accent: var(--teal);
+  --meter-track: #c5c6b7;
+  --meter-fill: var(--rust);
+  --skeleton: #d0cebf;
+  --place-protected: #dbe0cf;
+  --place-communities: #e1dccb;
+  --place-heritage: #e5d6c6;
+  --place-public: #d5dfd8;
+  --place-text: var(--ink);
+  --place-muted: #566264;
+  --place-link: #315f60;
+  --place-type: #786c54;
+  --place-number: #ac9b72;
+  --photo-ground: #1b343b;
+  --on-photo: var(--cream);
+  --on-photo-body: rgba(247, 240, 222, .87);
+  --on-photo-dim: rgba(247, 240, 222, .75);
+  --on-photo-eyebrow: #dfbf74;
+  --on-photo-link: #f4d47f;
+  --map-sheet: #cfcbb8;
+  --map-water: #78a09b;
+  --map-ripple: #71999a;
+  --map-land: #dfd7b7;
+  --map-land-edge: #aeaa8d;
+  --map-wetland: #a7b9a1;
+  --map-wetland-edge: #738e7c;
+  --map-river: #4b7474;
+  --map-pin: #a8503d;
+  --map-user: #bd442c;
+  --map-user-ring: #fff4d7;
+  --map-label: #1c3536;
+  --map-water-label: #315c60;
+  --map-scale: #5e7168;
+  --map-controls: #d8d3bf;
+  --map-controls-text: #435854;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
+  --topbar-height: 70px;
+  --topbar-height-sm: 60px;
+  --section-pad: 96px;
+  --section-pad-sm: 70px;
+  --gutter-min: 24px;
+  --gutter-max: 164px;
+  --gutter-sm: 23px;
+  --index-gap: 35px;
+  --title-gap: 24px;
+  --column-gap: 30px;
+  --card-pad-y: 25px;
+  --card-pad-x: 27px;
+  --panel-pad: 24px;
+  --row-gap: 14px;
+  --label-gap: 8px;
+  --control-pad-y: 11px;
+  --control-pad-x: 14px;
+  --radius-none: 0;
+  --border-hairline: 1px;
+  --border-note: 2px;
+  --border-panel: 3px;
+  --focus-offset: 4px;
+  --flag-edge: 0 0 0 1px rgba(25, 44, 48, .22);
+}
+/* Night band: a section with data-theme="night", or the whole page in dark mode. */
+[data-theme="night"] {
+  --surface: #183438;
+  --surface-sunk: var(--deep);
+  --surface-panel: #244a4d;
+  --text: var(--paper);
+  --text-body: #bdc9bf;
+  --text-muted: #c3c7ba;
+  --text-meta: #c3c7ba;
+  --text-index: #d8b761;
+  --link: #e4c975;
+  --warning: #f3bd96;
+  --rule: rgba(234, 227, 206, .3);
+  --rule-soft: rgba(230, 223, 202, .22);
+  --action-outline: #d9bd6d;
+  --on-action-outline: #f4e6bc;
+  --panel-accent: #e4c975;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="paper"]) {
+    --surface: #183438;
+    --surface-sunk: var(--deep);
+    --surface-panel: #244a4d;
+    --text: var(--paper);
+    --text-body: #bdc9bf;
+    --text-muted: #c3c7ba;
+    --text-meta: #c3c7ba;
+    --text-index: #d8b761;
+    --link: #e4c975;
+    --warning: #f3bd96;
+    --rule: rgba(234, 227, 206, .3);
+    --rule-soft: rgba(230, 223, 202, .22);
+    --action-outline: #d9bd6d;
+    --on-action-outline: #f4e6bc;
+    --panel-accent: #e4c975;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="night"] { color-scheme: dark; }
+.display-hero { font-family: var(--font-display); font-size: 119px; line-height: 0.91; font-weight: 500; letter-spacing: -0.058em; font-optical-sizing: auto; }
+.display-section { font-family: var(--font-display); font-size: 69px; line-height: 1.05; font-weight: 500; letter-spacing: -0.045em; font-optical-sizing: auto; }
+.display-figure { font-family: var(--font-display); font-size: 62px; line-height: 0.95; font-weight: 500; letter-spacing: -0.06em; font-optical-sizing: auto; }
+.display-band { font-family: var(--font-display); font-size: 47px; line-height: 1.05; font-weight: 500; letter-spacing: -0.045em; font-optical-sizing: auto; }
+.display-panel { font-family: var(--font-display); font-size: 29px; line-height: 1.1; font-weight: 500; font-optical-sizing: auto; }
+.display-card { font-family: var(--font-display); font-size: 28px; line-height: 1.12; font-weight: 500; font-optical-sizing: auto; }
+.display-brand { font-family: var(--font-display); font-size: 28px; line-height: 0.9; font-weight: 500; font-optical-sizing: auto; }
+.display-list { font-family: var(--font-display); font-size: 22px; line-height: 1.2; font-weight: 500; font-optical-sizing: auto; }
+.copy-lead { font-family: var(--font-sans); font-size: 16px; line-height: 1.7; font-weight: 400; }
+.copy-body { font-family: var(--font-sans); font-size: 15px; line-height: 1.86; font-weight: 400; }
+.copy-small { font-family: var(--font-sans); font-size: 14px; line-height: 1.85; font-weight: 400; }
+.copy-column { font-family: var(--font-sans); font-size: 13px; line-height: 1.8; font-weight: 400; }
+.copy-card { font-family: var(--font-sans); font-size: 12px; line-height: 1.7; font-weight: 400; }
+.copy-micro { font-family: var(--font-sans); font-size: 10px; line-height: 1.6; font-weight: 400; }
+.mono-eyebrow { font-family: var(--font-mono); font-size: 10px; line-height: 1.4; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; }
+.mono-nav { font-family: var(--font-mono); font-size: 10px; line-height: 1.4; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
+.mono-action { font-family: var(--font-mono); font-size: 10px; line-height: 1.4; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
+.mono-brand { font-family: var(--font-mono); font-size: 11px; line-height: 1.05; font-weight: 500; letter-spacing: 0.11em; text-transform: uppercase; }
+.mono-data { font-family: var(--font-mono); font-size: 11px; line-height: 1.4; font-weight: 400; }
+.mono-coordinate { font-family: var(--font-mono); font-size: 10px; line-height: 1.8; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
+.mono-credit { font-family: var(--font-mono); font-size: 8px; line-height: 1.5; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }

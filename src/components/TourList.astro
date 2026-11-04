@@ -1,0 +1,30 @@
+---
+/* Operadores de tours (src/content/tours.yaml), al final de la página con key 'tours'.
+   Los enlaces se abren fuera: en la app, en el navegador del sistema. */
+import { getCollection } from 'astro:content';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const tours = (await getCollection('tours')).sort((a, b) => a.data.name.localeCompare(b.data.name, lang));
+const languageName = new Intl.DisplayNames([lang], { type: 'language' });
+const month = new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+<h2>{t('tours.title')}</h2>
+{tours.length === 0
+  ? <p>{t('tours.empty')}</p>
+  : (
+    <ul class="tours">
+      {tours.map(({ data }) => (
+        <li>
+          <h3><a href={data.url} target="_blank" rel="noreferrer">{data.name} <span aria-hidden="true">↗</span></a></h3>
+          {data.note?.[lang] && <p>{data.note[lang]}</p>}
+          <p class="tour-meta">
+            {t('tours.base')} {data.base} · {t('tours.langs')}: {data.langs.map((l) => languageName.of(l)).join(', ')} · {t('tours.reviewed')}: {month.format(data.reviewed)}
+          </p>
+        </li>
+      ))}
+    </ul>
+  )}
+<blockquote><p>{t('tours.disclaimer')}</p></blockquote>

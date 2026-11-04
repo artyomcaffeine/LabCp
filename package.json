@@ -1,0 +1,33 @@
+{
+  "name": "catatumbo-web",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "app:build": "astro build --mode app && cap sync",
+    "app:android": "cap open android",
+    "app:ios": "cap open ios",
+    "app:assets": "capacitor-assets generate --ios --android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/geolocation": "^8.2.4",
+    "@capacitor/ios": "^8.5.3",
+    "astro": "^7.4.0",
+    "maplibre-gl": "^6.16.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.11",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.5.3",
+    "typescript": "^6.0.3"
+  }
+}

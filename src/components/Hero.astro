@@ -1,0 +1,21 @@
+---
+import { Picture } from 'astro:assets';
+import heroImage from '../assets/img/catatumbo-01.jpg';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; cta: string }
+const { lang, cta } = Astro.props;
+const t = useTranslations(lang);
+---
+<section class="ct-hero">
+  <Picture class="ct-hero-image" src={heroImage} alt={t('hero.alt')} widths={[640, 1024, 1440, 1920]} sizes="100vw" formats={['avif', 'webp']} fallbackFormat="webp" loading="eager" fetchpriority="high" />
+  <div class="ct-hero-shade"></div>
+  <div class="ct-hero-copy">
+    <p class="ct-eyebrow mono-eyebrow">Zulia · Venezuela · 09° N</p>
+    <h1 class="ct-hero-title display-hero"><span>{t('hero.title')}</span> <em>{t('hero.titleEm')}</em></h1>
+    <p class="ct-hero-intro copy-lead">{t('hero.intro')}</p>
+    <a class="ct-text-link mono-action" href={cta}>{t('hero.cta')} <span aria-hidden="true">↘</span></a>
+  </div>
+  <a class="ct-hero-scroll" href="#bienvenida"><span></span>{t('hero.scroll')}</a>
+  <a class="ct-hero-caption mono-credit" href="https://commons.wikimedia.org/wiki/User:Fernando_Flores" target="_blank" rel="noreferrer">Fernando Flores · Wikimedia Commons · CC BY-SA 2.0</a>
+</section>

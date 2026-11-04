@@ -1,0 +1,21 @@
+---
+/* El banner con el que empieza cada página de contenido: ruta de navegación, el h1 de la página y su resumen,
+   sobre su propio título como marca de agua enorme en la franja nocturna. */
+import { useTranslations, type Lang } from '../i18n/ui';
+import { homeUrl } from '../lib/pages';
+
+interface Props { lang: Lang; title: string; description: string }
+const { lang, title, description } = Astro.props;
+const t = useTranslations(lang);
+---
+<header class="page-head" data-theme="night">
+  <p class="watermark page-mark" aria-hidden="true">{title}</p>
+  <nav class="crumbs mono-eyebrow" aria-label={t('crumb.aria')}>
+    <ol>
+      <li><a href={homeUrl(lang)}>{t('crumb.home')}</a></li>
+      <li aria-current="page">{title}</li>
+    </ol>
+  </nav>
+  <h1 class="page-title display-section">{title}</h1>
+  <p class="page-lead copy-lead">{description}</p>
+</header>

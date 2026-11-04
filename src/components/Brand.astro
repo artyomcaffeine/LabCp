@@ -1,0 +1,12 @@
+---
+import { useTranslations, type Lang } from '../i18n/ui';
+import { homeUrl } from '../lib/pages';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+<a class="ct-brand" href={homeUrl(lang)} aria-label={t('brand.aria')}>
+  <span class="ct-brand-mark display-brand" aria-hidden="true">C.</span>
+  <span class="mono-brand">CATATUMBO<br><small>{t('brand.tagline')}</small></span>
+</a>
