@@ -1,7 +1,6 @@
 ---
 /* Marca, menú, bandera, selector de idioma (desplegable) y (en teléfonos) el botón del menú. */
 import Brand from './Brand.astro';
-import Icon from './Icon.astro';
 import { LANG_NAMES, useTranslations, type Lang } from '../i18n/ui';
 import { asset, pagesIn, pageUrl, type PageKey } from '../lib/pages';
 
@@ -23,7 +22,7 @@ const nav = await pagesIn(lang);
          idiomas de LANGS, sean cuantos sean; cada uno lleva a la misma página en ese idioma. -->
     <details class="lang-menu" data-lang-menu>
       <summary class="ct-language" aria-label={`${t('nav.lang')}: ${LANG_NAMES[lang]}`}>
-        <Icon name="earth" size={24} />
+        <span class="lang-globe" aria-hidden="true">🌎</span>
       </summary>
       <ul>
         {alternates.map((v) => (
