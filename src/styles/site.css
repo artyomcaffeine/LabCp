@@ -31,6 +31,8 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 /* Widget flotante de hora y tiempo: cristal oscuro sobre la foto o el banner, arriba a la derecha.
    Se desplaza con la página y pasa bajo la barra superior. */
 .now { position: absolute; top: calc(var(--topbar-height) + env(safe-area-inset-top, 0px) + 22px); right: calc(clamp(19px, 5vw, 76px) + env(safe-area-inset-right, 0px)); z-index: 20; display: flex; align-items: center; padding: 11px 6px; background: rgba(20, 45, 49, .62); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: var(--on-photo); font-size: 13px; letter-spacing: .04em; box-shadow: 0 8px 24px rgba(10, 25, 31, .18); }
+/* Única excepción a las esquinas rectas: píldora, como el widget de kyoto.travel. !important para ganar a la regla global. */
+.now { border-radius: 999px !important; }
 .now[hidden], .now [hidden] { display: none; }
 .now-part { display: flex; align-items: center; gap: 9px; padding: 0 16px; }
 .now-part + .now-part { border-left: 1px solid var(--on-photo-dim); }
