@@ -1,0 +1,50 @@
+---
+/* Widget flotante bajo la barra superior: hora local del lago | cielo y temperatura en Congo Mirador.
+   Ejemplo: 🕒 9:42 p. m. | ☾ 27,4 °C. Sin JavaScript no se muestra; sin conexión, solo la hora. */
+import Icon from './Icon.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+<aside class="now mono-nav" data-now data-lang={lang} aria-label={t('now.aria')} hidden>
+  <span class="now-part"><Icon name="clock" size={18} /><time data-clock></time></span>
+  <span class="now-part" data-weather hidden>
+    <span class="now-sky" data-sky="day" hidden><Icon name="sun" size={18} /></span>
+    <span class="now-sky" data-sky="night" hidden><Icon name="moon" size={18} /></span>
+    <span class="now-sky" data-sky="storm" hidden><Icon name="bolt" size={18} /></span>
+    <span data-temp></span>
+  </span>
+</aside>
+
+<script>
+  import { ZONE, fetchNow } from '../lib/weather';
+
+  const TICK_MS = 30 * 1000;
+
+  const root = document.querySelector<HTMLElement>('[data-now]');
+  if (root) {
+    const lang = root.dataset.lang ?? 'es';
+    const clock = root.querySelector<HTMLElement>('[data-clock]')!;
+    const time = new Intl.DateTimeFormat(lang, { hour: 'numeric', minute: '2-digit', timeZone: ZONE });
+
+    /* La hora del lago, no la del visitante. */
+    const tick = () => { clock.textContent = time.format(new Date()); };
+    tick();
+    setInterval(tick, TICK_MS);
+    root.hidden = false;
+
+    /* El tiempo llega después; si falla, el widget se queda solo con la hora. */
+    fetchNow().then((now) => {
+      if (!now) {
+        return;
+      }
+
+      const temp = new Intl.NumberFormat(lang, { style: 'unit', unit: 'celsius', maximumFractionDigits: 1 });
+      root.querySelector<HTMLElement>('[data-temp]')!.textContent = temp.format(now.temp);
+      root.querySelector<HTMLElement>(`[data-sky="${now.sky}"]`)!.hidden = false;
+      root.querySelector<HTMLElement>('[data-weather]')!.hidden = false;
+    });
+  }
+</script>
