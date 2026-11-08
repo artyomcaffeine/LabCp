@@ -21,17 +21,15 @@ const t = useTranslations(lang);
 <script>
   import { ZONE, fetchNow, type Now } from '../lib/weather';
 
-  const SECOND_MS = 1000;
-  const MINUTE_MS = 60 * SECOND_MS;
+  const MINUTE_MS = 60 * 1000;
 
   const root = document.querySelector<HTMLElement>('[data-now]');
   if (root) {
     const lang = root.dataset.lang ?? 'es';
     const clock = root.querySelector<HTMLElement>('[data-clock]')!;
-    const time = new Intl.DateTimeFormat(lang, { hour: 'numeric', minute: '2-digit', second: '2-digit', timeZone: ZONE });
+    const time = new Intl.DateTimeFormat(lang, { hour: 'numeric', minute: '2-digit', timeZone: ZONE });
     const temp = new Intl.NumberFormat(lang, { style: 'unit', unit: 'celsius', maximumFractionDigits: 1 });
     let timer = 0;
-    let lastMinute = -1;
 
     /* Cielo y temperatura. Si falla, se queda la última lectura (o solo la hora). */
     function show(now: Now | null) {
@@ -44,22 +42,15 @@ const t = useTranslations(lang);
       root!.querySelector<HTMLElement>('[data-weather]')!.hidden = false;
     }
 
-    /* La hora del lago, no la del visitante, con segundos. Se repite justo al cambiar el segundo
-       (12:00:07 → 12:00:08), no cada 1000 ms desde la carga, para no ir con retraso. Una vez por minuto
-       pide el tiempo: fetchNow() devuelve la lectura guardada hasta que tiene 15 minutos y solo entonces
-       llama a Open-Meteo. */
+    /* La hora del lago, no la del visitante. Se repite justo al cambiar el minuto (12:59:59 → 13:00:00),
+       no cada N segundos, para no ir con retraso. De paso pide el tiempo: fetchNow() devuelve la lectura
+       guardada hasta que tiene 15 minutos y solo entonces llama a Open-Meteo. */
     function tick() {
-      const now = Date.now();
-      clock.textContent = time.format(now);
-
-      const minute = Math.floor(now / MINUTE_MS);
-      if (minute !== lastMinute) {
-        lastMinute = minute;
-        fetchNow().then(show);
-      }
+      clock.textContent = time.format(new Date());
+      fetchNow().then(show);
 
       clearTimeout(timer);
-      timer = window.setTimeout(tick, SECOND_MS - (Date.now() % SECOND_MS));
+      timer = window.setTimeout(tick, MINUTE_MS - (Date.now() % MINUTE_MS));
     }
 
     tick();
