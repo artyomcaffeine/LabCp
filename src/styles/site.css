@@ -5,6 +5,9 @@
 *, *::before, *::after { border-radius: 0 !important; box-sizing: border-box; }
 
 html { scroll-padding-top: calc(var(--topbar-height) + env(safe-area-inset-top, 0px)); -webkit-text-size-adjust: 100%; }
+
+/* Sin el destello gris que los navegadores móviles ponen al tocar un enlace o botón. El foco con teclado se mantiene. */
+html { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body { background: var(--surface); color: var(--text); overflow-x: hidden; }
 img { max-width: 100%; }
