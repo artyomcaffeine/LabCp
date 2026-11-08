@@ -19,32 +19,50 @@ const t = useTranslations(lang);
 </aside>
 
 <script>
-  import { ZONE, fetchNow } from '../lib/weather';
+  import { ZONE, fetchNow, type Now } from '../lib/weather';
 
-  const TICK_MS = 30 * 1000;
+  const MINUTE_MS = 60 * 1000;
 
   const root = document.querySelector<HTMLElement>('[data-now]');
   if (root) {
     const lang = root.dataset.lang ?? 'es';
     const clock = root.querySelector<HTMLElement>('[data-clock]')!;
     const time = new Intl.DateTimeFormat(lang, { hour: 'numeric', minute: '2-digit', timeZone: ZONE });
+    const temp = new Intl.NumberFormat(lang, { style: 'unit', unit: 'celsius', maximumFractionDigits: 1 });
+    let timer = 0;
 
-    /* La hora del lago, no la del visitante. */
-    const tick = () => { clock.textContent = time.format(new Date()); };
-    tick();
-    setInterval(tick, TICK_MS);
-    root.hidden = false;
-
-    /* El tiempo llega después; si falla, el widget se queda solo con la hora. */
-    fetchNow().then((now) => {
+    /* Cielo y temperatura. Si falla, se queda la última lectura (o solo la hora). */
+    function show(now: Now | null) {
       if (!now) {
         return;
       }
 
-      const temp = new Intl.NumberFormat(lang, { style: 'unit', unit: 'celsius', maximumFractionDigits: 1 });
-      root.querySelector<HTMLElement>('[data-temp]')!.textContent = temp.format(now.temp);
-      root.querySelector<HTMLElement>(`[data-sky="${now.sky}"]`)!.hidden = false;
-      root.querySelector<HTMLElement>('[data-weather]')!.hidden = false;
+      root!.querySelector<HTMLElement>('[data-temp]')!.textContent = temp.format(now.temp);
+      root!.querySelectorAll<HTMLElement>('[data-sky]').forEach((icon) => { icon.hidden = icon.dataset.sky !== now.sky; });
+      root!.querySelector<HTMLElement>('[data-weather]')!.hidden = false;
+    }
+
+    /* La hora del lago, no la del visitante. Se repite justo al cambiar el minuto (12:59:59 → 13:00:00),
+       no cada N segundos, para no ir con retraso. De paso pide el tiempo: fetchNow() devuelve la lectura
+       guardada hasta que tiene 15 minutos y solo entonces llama a Open-Meteo. */
+    function tick() {
+      clock.textContent = time.format(new Date());
+      fetchNow().then(show);
+
+      clearTimeout(timer);
+      timer = window.setTimeout(tick, MINUTE_MS - (Date.now() % MINUTE_MS));
+    }
+
+    tick();
+    root.hidden = false;
+
+    /* Los teléfonos pausan los temporizadores con la pestaña en segundo plano: al volver, se actualiza al momento. */
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        return;
+      }
+
+      tick();
     });
   }
 </script>

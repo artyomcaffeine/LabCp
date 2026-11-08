@@ -44,6 +44,9 @@ function skyOf(code: number, isDay: number): Sky {
   return isDay ? Sky.Day : Sky.Night;
 }
 
+/* Petición en curso: si se pide otra vez antes de que responda, se reutiliza en vez de repetirla. */
+let pending: Promise<Now | null> | null = null;
+
 /* La temperatura y el cielo de ahora. null si no hay conexión ni lectura reciente. */
 export async function fetchNow(): Promise<Now | null> {
   const hit = cached();
@@ -51,6 +54,11 @@ export async function fetchNow(): Promise<Now | null> {
     return hit;
   }
 
+  pending ??= download().finally(() => { pending = null; });
+  return pending;
+}
+
+async function download(): Promise<Now | null> {
   try {
     const res = await fetch(API, { signal: AbortSignal.timeout(TIMEOUT_MS) });
     if (!res.ok) {
