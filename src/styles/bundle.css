@@ -19,8 +19,11 @@ body { margin: 0; background: var(--surface); color: var(--text); font-family: v
 /* Topbar */
 .ct-topbar { height: var(--topbar-height); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(19px, 5vw, 76px); background: var(--surface); color: var(--text); position: sticky; top: 0; z-index: 10; border-bottom: var(--border-hairline) solid var(--rule); }
 .ct-nav { display: flex; align-items: center; gap: clamp(17px, 3vw, 46px); margin-left: auto; margin-right: clamp(25px, 5vw, 72px); }
-.ct-nav a { color: inherit; text-decoration: none; text-transform: uppercase; }
+.ct-nav a { color: inherit; text-decoration: none; text-transform: uppercase; font-size: 12px; }
 .ct-nav a:hover { color: var(--rust); }
+/* Entre 851 y 1259 px el menú no cabe con los huecos de escritorio: se juntan a 16 px y el menú crece hacia el logo.
+   Así las etiquetas caben en una línea desde unos 1060 px (en alemán, el idioma más largo). */
+@media (min-width: 851px) and (max-width: 1259px) { .ct-nav { gap: 16px; margin-right: 16px; } }
 .ct-nav-actions { display: flex; align-items: center; gap: 15px; }
 .ct-flag { display: block; width: 30px; height: 20px; box-shadow: var(--flag-edge); }
 .ct-language { border: 0; background: none; cursor: pointer; color: inherit; font: 10px var(--font-mono); letter-spacing: .04em; padding: 10px 0 10px 7px; }
@@ -186,7 +189,7 @@ body { margin: 0; background: var(--surface); color: var(--text); font-family: v
 
 @media (max-width: 850px) {
   .ct-nav { gap: 15px; margin-right: 23px; }
-  .ct-nav a { font-size: 8px; }
+  .ct-nav a { font-size: 10px; }
   .ct-section, .ct-band { padding-left: 7vw; padding-right: 7vw; }
   .ct-split-copy { padding: 38px; }
 }
@@ -194,7 +197,7 @@ body { margin: 0; background: var(--surface); color: var(--text); font-family: v
   .ct-topbar { height: var(--topbar-height-sm); padding: 0 19px; }
   .ct-nav { display: none; position: absolute; top: var(--topbar-height-sm); left: 0; right: 0; margin: 0; padding: 12px 20px 21px; background: var(--surface); border-bottom: var(--border-hairline) solid var(--rule); flex-direction: column; align-items: stretch; z-index: 5; }
   .ct-nav.is-open { display: flex; }
-  .ct-nav a { font-size: 10px; padding: 12px 0; border-bottom: var(--border-hairline) solid var(--rule); }
+  .ct-nav a { font-size: 12px; padding: 12px 0; border-bottom: var(--border-hairline) solid var(--rule); }
   .ct-menu-button { display: block; }
   .ct-nav-actions { gap: 11px; }
   .ct-hero { min-height: 610px; height: calc(88svh - 60px); }
