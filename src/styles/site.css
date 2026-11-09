@@ -24,6 +24,9 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 /* Barra semitransparente: deja entrever la página que pasa por debajo. 90 % de opacidad, en claro y en oscuro. */
 .ct-topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
+
+/* Menú 2 px más grande que el del sistema de diseño (10 → 12; 8 → 10 entre 651 y 850 px; 10 → 12 en el desplegable). */
+.ct-nav a { font-size: 12px; }
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }
 .ct-menu-button.is-open .i-menu { display: none; }
@@ -188,6 +191,7 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .welcome-grid { grid-template-columns: 1fr 1fr; }
   .welcome-head { grid-column: 1 / -1; padding-top: 30px; }
   .tips { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .ct-nav a { font-size: 10px; }
 }
 @media (max-width: 650px) {
   html { scroll-padding-top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); }
@@ -195,7 +199,7 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   /* El menú cuelga de la barra superior, que no se mueve: en horizontal (pantalla baja) no cabe entero.
      Se limita al alto que queda bajo la barra y se desplaza por dentro, sin mover la página de detrás. */
   .ct-nav { top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); max-height: calc(100dvh - var(--topbar-height-sm) - env(safe-area-inset-top, 0px)); overflow-y: auto; overscroll-behavior: contain; }
-  .ct-nav a { text-align: center; }
+  .ct-nav a { text-align: center; font-size: 12px; }
   .ct-footer { padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
   .ct-flag { display: none; }
   .now { top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px) + 16px); right: calc(16px + env(safe-area-inset-right, 0px)); padding: 9px 2px; font-size: 12px; }
