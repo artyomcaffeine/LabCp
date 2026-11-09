@@ -8,6 +8,7 @@ import dmSansUrl from '../assets/fonts/DMSans-Variable.woff2?url';
 import Topbar from '../components/Topbar.astro';
 import Footer from '../components/Footer.astro';
 import NowWidget from '../components/NowWidget.astro';
+import ToTop from '../components/ToTop.astro';
 import type { Lang } from '../i18n/ui';
 import { alternates as findAlternates, asset, type PageKey } from '../lib/pages';
 
@@ -40,5 +41,6 @@ const preview = import.meta.env.PUBLIC_DEPLOY_TARGET === 'pages';
     <slot />
   </main>
   <Footer lang={lang} />
+  <ToTop lang={lang} />
 </body>
 </html>

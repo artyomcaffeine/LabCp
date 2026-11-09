@@ -1,0 +1,30 @@
+---
+/* Botón «volver arriba», fijo abajo a la derecha (como en kyoto.travel). Es un enlace a #top: sin JavaScript
+   también funciona, y el desplazamiento suave ya lo pone site.css. */
+import Icon from './Icon.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+<a class="to-top mono-nav" href="#top" data-to-top>
+  <Icon name="chevronUp" size={22} />
+  {t('top.label')}
+</a>
+
+<script is:inline>
+  /* Se oculta arriba del todo, donde no hace falta, y aparece al bajar media pantalla. Corre justo después del
+     enlace, antes de pintar: no parpadea. */
+  (function () {
+    var SHOW_AFTER_SCREENS = 0.5;
+    var link = document.querySelector('[data-to-top]');
+
+    function update() {
+      link.toggleAttribute('data-hidden', scrollY < innerHeight * SHOW_AFTER_SCREENS);
+    }
+
+    update();
+    addEventListener('scroll', update, { passive: true });
+  })();
+</script>

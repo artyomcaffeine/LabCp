@@ -20,6 +20,9 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
    del teléfono: la barra superior crece lo que mida esta, y el pie deja sitio a la barra de gestos. En la web
    sin muesca, env() vale 0 y nada cambia. */
 .ct-topbar { z-index: 1000; height: calc(var(--topbar-height) + env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px); }
+
+/* Barra semitransparente: deja entrever la página que pasa por debajo. 90 % de opacidad, en claro y en oscuro. */
+.ct-topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }
@@ -173,6 +176,14 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .picker .ct-text-link { min-width: 180px; color: var(--link); margin: 0; }
 .picker small { color: var(--text-muted); }
 
+/* Volver arriba: círculo dorado abajo a la derecha, como en kyoto.travel. Oculto, baja 50 px y se desvanece;
+   visibility lo saca también del orden de tabulación. */
+.to-top { position: fixed; right: calc(25px + env(safe-area-inset-right, 0px)); bottom: calc(25px + env(safe-area-inset-bottom, 0px)); z-index: 900; width: 70px; height: 70px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; background: var(--gold); color: var(--ink); font-size: 11px; text-decoration: none; transition: opacity .3s, transform .3s, visibility .3s, background-color .2s, color .2s; }
+.to-top { border-radius: 50% !important; }
+.to-top:hover, .to-top:focus-visible { background: var(--ink); color: var(--cream); }
+.to-top[data-hidden] { opacity: 0; transform: translateY(50px); visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .to-top[data-hidden] { transform: none; } }
+
 @media (max-width: 850px) {
   .welcome-grid { grid-template-columns: 1fr 1fr; }
   .welcome-head { grid-column: 1 / -1; padding-top: 30px; }
@@ -203,4 +214,5 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .prose h2 { margin-top: 56px; }
   .prose p, .prose li { font-size: 14px; }
   .prose td:first-child { font-size: 20px; white-space: normal; }
+  .to-top { right: calc(5px + env(safe-area-inset-right, 0px)); width: 60px; height: 60px; }
 }
