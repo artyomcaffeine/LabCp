@@ -19,12 +19,17 @@ const t = useTranslations(lang);
 </aside>
 
 <script>
-  import { ZONE, fetchNow, type Now } from '../lib/weather';
+  import { ZONE } from '../lib/lake';
+  import { fetchNow, type Now } from '../lib/weather';
 
   const MINUTE_MS = 60 * 1000;
 
-  const root = document.querySelector<HTMLElement>('[data-now]');
-  if (root) {
+  function start() {
+    const root = document.querySelector<HTMLElement>('[data-now]');
+    if (!root) {
+      return;
+    }
+
     const lang = root.dataset.lang ?? 'es';
     const clock = root.querySelector<HTMLElement>('[data-clock]')!;
     const time = new Intl.DateTimeFormat(lang, { hour: 'numeric', minute: '2-digit', timeZone: ZONE });
@@ -65,4 +70,6 @@ const t = useTranslations(lang);
       tick();
     });
   }
+
+  start();
 </script>

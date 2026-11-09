@@ -4,6 +4,7 @@ import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
+import PhotoCredit from '../../components/PhotoCredit.astro';
 import TourList from '../../components/TourList.astro';
 import Today from '../../components/Today.astro';
 import { langOf, slugOf, type Page } from '../../lib/pages';
@@ -23,7 +24,7 @@ const { Content } = await render(page);
   {photo && (
     <figure class="ct-photo">
       <Image src={photo} alt={photoAlt ?? ''} widths={[640, 1024, 1440, 1920]} sizes="100vw" format="webp" />
-      <figcaption class="mono-credit"><a href="https://commons.wikimedia.org/wiki/User:Fernando_Flores" target="_blank" rel="noreferrer">Fernando Flores · Wikimedia Commons · CC BY-SA 2.0</a></figcaption>
+      <figcaption class="mono-credit"><PhotoCredit /></figcaption>
     </figure>
   )}
   {key === 'today' && <Today lang={lang} />}
