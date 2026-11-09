@@ -28,9 +28,10 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .ct-menu-button.is-open .i-x { display: inline; }
 .ct-menu-button.is-open .i-menu { display: none; }
 
-/* Selector de idioma: el globo abre una lista con todos los idiomas, debajo y alineada a la derecha. */
-.lang-menu { position: relative; }
-.lang-menu summary { display: flex; align-items: center; gap: 6px; padding: 10px 0 10px 7px; list-style: none; }
+/* Selector de idioma: el globo abre una lista con todos los idiomas, centrada bajo el globo.
+   El botón lleva relleno solo a la izquierda: la lista se corre la mitad para quedar centrada en el icono. */
+.lang-menu { position: relative; --summary-pad: 7px; --icon-half: 9px; --edge-gap: 8px; --bar-pad: clamp(19px, 5vw, 76px); }
+.lang-menu summary { display: flex; align-items: center; gap: 6px; padding: 10px 0 10px var(--summary-pad); list-style: none; }
 .lang-menu summary::-webkit-details-marker { display: none; }
 .lang-menu summary:hover, .lang-menu[open] summary { color: var(--rust); }
 
@@ -43,11 +44,26 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .now-part { display: flex; align-items: center; gap: 9px; padding: 0 16px; }
 .now-part + .now-part { border-left: 1px solid var(--on-photo-dim); }
 .now-sky { color: var(--on-photo-eyebrow); }
-.lang-menu ul { position: absolute; top: 100%; right: 0; z-index: 1001; min-width: 170px; max-height: 70vh; overflow-y: auto; margin: 6px 0 0; padding: 6px 0; list-style: none; background: var(--surface); border: var(--border-hairline) solid var(--rule); box-shadow: 0 10px 24px rgba(10, 25, 31, .14); }
+.lang-menu ul { position: absolute; top: 100%; left: calc(50% + var(--summary-pad) / 2); transform: translateX(-50%); z-index: 1001; min-width: 170px; max-height: 70vh; overflow-y: auto; margin: 6px 0 0; padding: 6px 0; list-style: none; background: var(--surface); border: var(--border-hairline) solid var(--rule); box-shadow: 0 10px 24px rgba(10, 25, 31, .14); }
 .lang-menu a { display: flex; justify-content: space-between; gap: 18px; padding: 11px 16px; color: var(--text); text-decoration: none; }
 .lang-menu a small { color: var(--text-meta); font: inherit; }
 .lang-menu a:hover, .lang-menu a:focus-visible { background: var(--surface-sunk); color: var(--rust); }
 .lang-menu a[aria-current="true"], .lang-menu a[aria-current="true"] small { color: var(--rust); }
+
+/* Desde 1025 px la lista se ajusta a su contenido y, si centrada no cabe (el globo está a solo 60–85 px del borde),
+   se corre a la izquierda lo justo para quedar a 8 px del borde. Distancia libre a la derecha del centro del globo:
+   el relleno de .ct-topbar (--bar-pad, igual que en bundle.css) + medio icono − el margen. */
+@media (min-width: 1025px) {
+  .lang-menu ul { min-width: 0; width: max-content; transform: translateX(min(-50%, calc(var(--bar-pad) + var(--icon-half) - var(--edge-gap) - 100%))); }
+}
+
+/* Hasta 1024 px el globo está cerca del borde: la lista se centra en la pantalla, bajo la barra superior
+   (que es su referencia de posición), con el texto centrado. */
+@media (max-width: 1024px) {
+  .lang-menu { position: static; }
+  .lang-menu ul { left: 50%; }
+  .lang-menu a { justify-content: center; text-align: center; }
+}
 
 /* Notas */
 .ct-note { color: var(--text-muted); }
