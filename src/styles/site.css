@@ -204,6 +204,12 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .to-top[data-hidden] { opacity: 0; transform: translateY(50px); visibility: hidden; }
 @media (prefers-reduced-motion: reduce) { .to-top[data-hidden] { transform: none; } }
 
+/* Los desplegables (menú en teléfonos e idioma) se despliegan hacia abajo desde la barra al abrirse.
+   Se recorta en vez de moverse: así no tapa la barra. Sin relleno final, para no recortar la sombra del de idioma. */
+@keyframes menu-drop { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+.ct-nav.is-open, .lang-menu[open] ul { animation: menu-drop .25s ease-out; }
+@media (prefers-reduced-motion: reduce) { .ct-nav.is-open, .lang-menu[open] ul { animation: none; } }
+
 @media (max-width: 850px) {
   .welcome-grid { grid-template-columns: 1fr 1fr; }
   .welcome-head { grid-column: 1 / -1; padding-top: 30px; }

@@ -44,19 +44,37 @@ const nav = await pagesIn(lang);
 <script>
   import { rememberLang } from '../lib/lang';
 
-  /* Menú en teléfonos: el botón abre y cierra la navegación. */
+  /* Los dos desplegables (menú en teléfonos e idioma) cuelgan del mismo sitio: solo uno abierto a la vez. */
   const button = document.getElementById('menu-toggle')!;
   const nav = document.getElementById('nav')!;
+  const menu = document.querySelector<HTMLDetailsElement>('[data-lang-menu]')!;
 
+  function closeNav() {
+    nav.classList.remove('is-open');
+    button.classList.remove('is-open');
+    button.setAttribute('aria-expanded', 'false');
+  }
+
+  /* Menú en teléfonos: el botón abre y cierra la navegación. Al abrirla, cierra el idioma. */
   button.addEventListener('click', () => {
     const open = nav.classList.toggle('is-open');
     button.classList.toggle('is-open', open);
     button.setAttribute('aria-expanded', String(open));
+
+    if (open) {
+      menu.open = false;
+    }
+  });
+
+  /* Al abrir el idioma, cierra la navegación. */
+  menu.addEventListener('toggle', () => {
+    if (menu.open) {
+      closeNav();
+    }
   });
 
   /* Selector de idioma: se cierra al pulsar fuera o con Escape, y recuerda el idioma elegido para la próxima visita
      a la raíz del sitio. */
-  const menu = document.querySelector<HTMLDetailsElement>('[data-lang-menu]')!;
 
   document.addEventListener('click', (e) => {
     if (menu.open && !menu.contains(e.target as Node)) {
