@@ -21,6 +21,9 @@ body { margin: 0; background: var(--surface); color: var(--text); font-family: v
 .ct-nav { display: flex; align-items: center; gap: clamp(17px, 3vw, 46px); margin-left: auto; margin-right: clamp(25px, 5vw, 72px); }
 .ct-nav a { color: inherit; text-decoration: none; text-transform: uppercase; font-size: 12px; }
 .ct-nav a:hover { color: var(--rust); }
+/* Entre 851 y 1259 px el menú no cabe con los huecos de escritorio: se juntan a 16 px y el menú crece hacia el logo.
+   Así las etiquetas caben en una línea desde unos 1060 px (en alemán, el idioma más largo). */
+@media (min-width: 851px) and (max-width: 1259px) { .ct-nav { gap: 16px; margin-right: 16px; } }
 .ct-nav-actions { display: flex; align-items: center; gap: 15px; }
 .ct-flag { display: block; width: 30px; height: 20px; box-shadow: var(--flag-edge); }
 .ct-language { border: 0; background: none; cursor: pointer; color: inherit; font: 10px var(--font-mono); letter-spacing: .04em; padding: 10px 0 10px 7px; }
