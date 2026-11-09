@@ -1,6 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import heroImage from '../assets/img/catatumbo-01.jpg';
+import PhotoCredit from './PhotoCredit.astro';
 import { useTranslations, type Lang } from '../i18n/ui';
 
 interface Props { lang: Lang; cta: string }
@@ -17,5 +18,5 @@ const t = useTranslations(lang);
     <a class="ct-text-link mono-action" href={cta}>{t('hero.cta')} <span aria-hidden="true">↘</span></a>
   </div>
   <a class="ct-hero-scroll" href="#bienvenida"><span></span>{t('hero.scroll')}</a>
-  <a class="ct-hero-caption mono-credit" href="https://commons.wikimedia.org/wiki/User:Fernando_Flores" target="_blank" rel="noreferrer">Fernando Flores · Wikimedia Commons · CC BY-SA 2.0</a>
+  <PhotoCredit class="ct-hero-caption mono-credit" />
 </section>

@@ -1,23 +1,19 @@
 /* El tiempo de ahora mismo en Congo Mirador (Open-Meteo), para el widget de la barra superior.
    Guarda la última lectura en localStorage (ct.now) y no vuelve a pedirla hasta pasados 15 minutos,
    así navegar entre páginas no repite la petición. */
+import { CONGO_MIRADOR, ZONE } from './lake';
+import { isStorm } from './wmo';
 
-/* Hora oficial de la zona del lago. */
-export const ZONE = 'America/Caracas';
-
-const API = 'https://api.open-meteo.com/v1/forecast?latitude=9.3859&longitude=-71.8005'
+const API = `https://api.open-meteo.com/v1/forecast?latitude=${CONGO_MIRADOR.lat}&longitude=${CONGO_MIRADOR.lon}`
   + `&current=temperature_2m,is_day,weather_code&timezone=${encodeURIComponent(ZONE)}`;
 
 const STORE = 'ct.now';
 const FRESH_MS = 15 * 60 * 1000;
 const TIMEOUT_MS = 15000;
 
-/* Códigos WMO de tormenta: 95 tormenta, 96 y 99 tormenta con granizo. */
-const STORM_CODES = [95, 96, 99];
-
-/* Qué icono va junto a la temperatura. */
-export const Sky = { Day: 'day', Night: 'night', Storm: 'storm' } as const;
-export type Sky = (typeof Sky)[keyof typeof Sky];
+/* Qué icono va junto a la temperatura. El valor es el data-sky del icono en NowWidget. */
+const SKY = { Day: 'day', Night: 'night', Storm: 'storm' } as const;
+export type Sky = (typeof SKY)[keyof typeof SKY];
 
 export interface Now { temp: number; sky: Sky }
 interface Saved { at: number; now: Now }
@@ -37,11 +33,11 @@ function cached(): Now | null {
 }
 
 function skyOf(code: number, isDay: number): Sky {
-  if (STORM_CODES.includes(code)) {
-    return Sky.Storm;
+  if (isStorm(code)) {
+    return SKY.Storm;
   }
 
-  return isDay ? Sky.Day : Sky.Night;
+  return isDay ? SKY.Day : SKY.Night;
 }
 
 /* Petición en curso: si se pide otra vez antes de que responda, se reutiliza en vez de repetirla. */
@@ -71,7 +67,12 @@ async function download(): Promise<Now | null> {
     }
 
     const now: Now = { temp: current.temperature_2m, sky: skyOf(current.weather_code, current.is_day) };
-    try { localStorage.setItem(STORE, JSON.stringify({ at: Date.now(), now })); } catch {}
+    try {
+      localStorage.setItem(STORE, JSON.stringify({ at: Date.now(), now }));
+    } catch {
+      /* Sin almacenamiento: se muestra igual, pero no se guarda. */
+    }
+
     return now;
   } catch {
     return null;

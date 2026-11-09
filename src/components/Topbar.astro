@@ -41,27 +41,39 @@ const nav = await pagesIn(lang);
   </div>
 </header>
 
-<script is:inline>
+<script>
+  import { rememberLang } from '../lib/lang';
+
   /* Menú en teléfonos: el botón abre y cierra la navegación. */
-  (function () {
-    var button = document.getElementById('menu-toggle');
-    var nav = document.getElementById('nav');
-    button.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      button.classList.toggle('is-open', open);
-      button.setAttribute('aria-expanded', String(open));
-    });
-  })();
+  const button = document.getElementById('menu-toggle')!;
+  const nav = document.getElementById('nav')!;
+
+  button.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    button.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+  });
+
   /* Selector de idioma: se cierra al pulsar fuera o con Escape, y recuerda el idioma elegido para la próxima visita
      a la raíz del sitio. */
-  (function () {
-    var menu = document.querySelector('[data-lang-menu]');
-    document.addEventListener('click', function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
-    menu.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
-    });
-    menu.querySelectorAll('a[hreflang]').forEach(function (a) {
-      a.addEventListener('click', function () { try { localStorage.setItem('ct.lang', a.hreflang); } catch (e) {} });
-    });
-  })();
+  const menu = document.querySelector<HTMLDetailsElement>('[data-lang-menu]')!;
+
+  document.addEventListener('click', (e) => {
+    if (menu.open && !menu.contains(e.target as Node)) {
+      menu.open = false;
+    }
+  });
+
+  menu.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !menu.open) {
+      return;
+    }
+
+    menu.open = false;
+    menu.querySelector('summary')!.focus();
+  });
+
+  menu.querySelectorAll<HTMLAnchorElement>('a[hreflang]').forEach((a) => {
+    a.addEventListener('click', () => rememberLang(a.hreflang));
+  });
 </script>

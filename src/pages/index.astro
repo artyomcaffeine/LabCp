@@ -5,6 +5,7 @@ import '../styles/tokens.css';
 import '../styles/bundle.css';
 import '../styles/site.css';
 import { DEFAULT_LANG, LANGS, LANG_NAMES, useTranslations } from '../i18n/ui';
+import { LANG_KEY } from '../lib/lang';
 import { asset, homeUrl } from '../lib/pages';
 
 const homes = Object.fromEntries(LANGS.map((l) => [l, homeUrl(l)]));
@@ -16,9 +17,11 @@ const fallback = DEFAULT_LANG;
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Catatumbo</title>
-<script is:inline define:vars={{ homes, fallback }}>
+{/* En línea, y leyendo localStorage directamente en vez de con lib/lang.ts: tiene que redirigir antes de pintar
+    la página, y un script en línea no puede importar módulos. */}
+<script is:inline define:vars={{ homes, fallback, langKey: LANG_KEY }}>
   var saved = null;
-  try { saved = localStorage.getItem('ct.lang'); } catch (e) {}
+  try { saved = localStorage.getItem(langKey); } catch (e) {}
   var wanted = [saved].concat((navigator.languages || [navigator.language]).map(function (l) { return (l || '').slice(0, 2).toLowerCase(); }));
   var pick = wanted.filter(function (l) { return l && homes[l]; })[0] || fallback;
   location.replace(homes[pick]);
