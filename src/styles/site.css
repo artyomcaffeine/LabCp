@@ -57,12 +57,13 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .lang-menu ul { min-width: 0; width: max-content; transform: translateX(min(-50%, calc(var(--bar-pad) + var(--icon-half) - var(--edge-gap) - 100%))); }
 }
 
-/* Hasta 1024 px el globo está cerca del borde: la lista se centra en la pantalla, bajo la barra superior
-   (que es su referencia de posición), con el texto centrado. */
+/* Hasta 1024 px la lista es igual que el menú desplegable de teléfonos (.ct-nav en bundle.css): a todo el ancho,
+   justo bajo la línea de la barra superior (que es su referencia de posición), con el texto centrado. */
 @media (max-width: 1024px) {
   .lang-menu { position: static; }
-  .lang-menu ul { left: 50%; }
-  .lang-menu a { justify-content: center; text-align: center; }
+  .lang-menu ul { top: calc(100% + var(--border-hairline)); left: 0; right: 0; transform: none; min-width: 0; margin: 0; padding: 12px 20px 21px; display: flex; flex-direction: column; gap: 15px; border: 0; border-bottom: var(--border-hairline) solid var(--rule); box-shadow: none; }
+  .lang-menu a { justify-content: center; text-align: center; font-size: 12px; padding: 12px 0; border-bottom: var(--border-hairline) solid var(--rule); }
+  .lang-menu a:hover, .lang-menu a:focus-visible { background: none; }
 }
 
 /* Notas */
