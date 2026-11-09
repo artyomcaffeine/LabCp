@@ -44,7 +44,7 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .now-part { display: flex; align-items: center; gap: 9px; padding: 0 16px; }
 .now-part + .now-part { border-left: 1px solid var(--on-photo-dim); }
 .now-sky { color: var(--on-photo-eyebrow); }
-.lang-menu ul { position: absolute; top: 100%; left: calc(50% + var(--summary-pad) / 2); transform: translateX(-50%); z-index: 1001; min-width: 170px; max-height: 70vh; overflow-y: auto; margin: 6px 0 0; padding: 6px 0; list-style: none; background: var(--surface); border: var(--border-hairline) solid var(--rule); box-shadow: 0 10px 24px rgba(10, 25, 31, .14); }
+.lang-menu ul { position: absolute; top: 100%; left: calc(50% + var(--summary-pad) / 2); transform: translateX(-50%); z-index: 1001; min-width: 170px; max-height: 70vh; overflow-y: auto; overscroll-behavior: contain; margin: 6px 0 0; padding: 6px 0; list-style: none; background: var(--surface); border: var(--border-hairline) solid var(--rule); box-shadow: 0 10px 24px rgba(10, 25, 31, .14); }
 .lang-menu a { display: flex; justify-content: space-between; gap: 18px; padding: 11px 16px; color: var(--text); text-decoration: none; }
 .lang-menu a small { color: var(--text-meta); font: inherit; }
 .lang-menu a:hover, .lang-menu a:focus-visible { background: var(--surface-sunk); color: var(--rust); }
@@ -57,12 +57,16 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .lang-menu ul { min-width: 0; width: max-content; transform: translateX(min(-50%, calc(var(--bar-pad) + var(--icon-half) - var(--edge-gap) - 100%))); }
 }
 
-/* Hasta 1024 px el globo está cerca del borde: la lista se centra en la pantalla, bajo la barra superior
-   (que es su referencia de posición), con el texto centrado. */
+/* Hasta 1024 px la lista es igual que el menú desplegable de teléfonos (.ct-nav en bundle.css): a todo el ancho,
+   justo bajo la línea de la barra superior (que es su referencia de posición), con el texto centrado. */
 @media (max-width: 1024px) {
   .lang-menu { position: static; }
-  .lang-menu ul { left: 50%; }
-  .lang-menu a { justify-content: center; text-align: center; }
+  .lang-menu ul { top: calc(100% + var(--border-hairline)); left: 0; right: 0; transform: none; min-width: 0; margin: 0; padding: 12px 20px 21px; display: flex; flex-direction: column; gap: 15px; border: 0; border-bottom: var(--border-hairline) solid var(--rule); box-shadow: none; }
+  .lang-menu a { justify-content: center; text-align: center; font-size: 12px; padding: 12px 0; border-bottom: var(--border-hairline) solid var(--rule); }
+  .lang-menu a:hover, .lang-menu a:focus-visible { background: none; }
+
+  /* Como el menú: llega hasta el borde inferior de la pantalla y se desplaza por dentro. */
+  .lang-menu ul { max-height: calc(100dvh - var(--topbar-height) - env(safe-area-inset-top, 0px)); }
 }
 
 /* Notas */
@@ -206,6 +210,7 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .tips { grid-template-columns: 1fr 1fr; row-gap: 40px; }
 }
 @media (max-width: 650px) {
+  .lang-menu ul { max-height: calc(100dvh - var(--topbar-height-sm) - env(safe-area-inset-top, 0px)); }
   html { scroll-padding-top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); }
   .ct-topbar { height: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); }
   /* El menú cuelga de la barra superior, que no se mueve: en horizontal (pantalla baja) no cabe entero.
