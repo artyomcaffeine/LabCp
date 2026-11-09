@@ -208,7 +208,7 @@ body { margin: 0; background: var(--surface); color: var(--text); font-family: v
   .ct-hero-title { font-size: clamp(59px, 16vw, 88px); margin: 24px 0 17px; }
   .ct-hero-intro { max-width: 385px; font-size: 14px; }
   .ct-hero-coordinate { top: 26px; right: 23px; font-size: 8px; }
-  .ct-hero-caption { font-size: 7px; bottom: 65px; right: 14px; text-align: right; line-height: 1.5; }
+  .ct-hero-caption { font-size: 7px; bottom: 65px; right: 14px; max-width: 45%; text-align: right; line-height: 1.5; }
   .ct-hero-scroll { bottom: 17px; gap: 8px; }
   .ct-hero-scroll span { height: 18px; }
   .ct-section { padding: var(--section-pad-sm) var(--gutter-sm); }
