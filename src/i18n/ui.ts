@@ -98,6 +98,7 @@ const es = {
   'footer.privacy': 'Privacidad',
   'footer.logoName': 'Catatumbo Digital',
   'footer.logoTagline': 'Ecosistema tecnológico del relámpago',
+  'top.label': 'Arriba',
   'picker.title': 'Elige tu idioma',
 };
 
@@ -191,6 +192,7 @@ const en: UI = {
   'footer.privacy': 'Privacy',
   'footer.logoName': 'Catatumbo Digital',
   'footer.logoTagline': 'Technology ecosystem of the lightning',
+  'top.label': 'Top',
   'picker.title': 'Choose your language',
 };
 
@@ -282,6 +284,7 @@ const de: UI = {
   'footer.privacy': 'Datenschutz',
   'footer.logoName': 'Catatumbo Digital',
   'footer.logoTagline': 'Technologie-Ökosystem des Blitzes',
+  'top.label': 'Oben',
   'picker.title': 'Sprache wählen',
 };
 
@@ -373,6 +376,7 @@ const fr: UI = {
   'footer.privacy': 'Confidentialité',
   'footer.logoName': 'Catatumbo Digital',
   'footer.logoTagline': 'Écosystème technologique de la foudre',
+  'top.label': 'Haut',
   'picker.title': 'Choisissez votre langue',
 };
 
