@@ -1,14 +1,14 @@
 ---
 key: places
 title: Luoghi
-description: Villaggi su palafitte, il parco nazionale, l’imbarcadero e luoghi da vedere a Maracaibo.
+description: I villaggi su palafitte, il parco nazionale e l’imbarcadero del sud del lago.
 order: 4
 draft_translation: true
 ---
 
 ## Un lago, molte rive.
 
-I luoghi istituzionali e comunitari che danno forma a una visita: l’area protetta dove nasce il temporale, i villaggi su palafitte da cui lo si osserva, il patrimonio di Maracaibo e i punti di arrivo.
+I luoghi istituzionali e comunitari che danno forma a una visita: l’area protetta dove nasce il temporale, i villaggi su palafitte da cui lo si osserva e l’imbarcadero da cui partono le barche.
 
 Il lago di Maracaibo copre circa 13.500 km². A nord comunica con il mar dei Caraibi attraverso uno stretto, a sud lo alimentano decine di fiumi. Il più grande, il Catatumbo, porta più della metà della sua acqua.
 
@@ -57,69 +57,3 @@ Santa Bárbara è la città dell’allevamento del sud del lago, nota per il for
 
 ![Barche all’imbarcadero di Puerto Concha, accanto al cartello di Inparques](../../../assets/img/puerto-concha.jpg)
 *[Yoser Linares · Wikimedia Commons · CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Puerto_Concha.jpg)*
-
-## Maracaibo
-
-### Basilica di Nostra Signora di Chiquinquirá
-
-*Patrimonio religioso*
-
-Il santuario della «Chinita», patrona dello Zulia, nel centro storico di Maracaibo. La sua festa, a novembre, è la più grande della regione. [Wikipedia](https://es.wikipedia.org/wiki/Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora_de_Chiquinquir%C3%A1_(Maracaibo))
-
-Nacque nel 1686 come eremo di fango e paglia. Secondo la tradizione, nel 1709 una donna trovò sulla riva del lago una piccola tavoletta di legno, sulla quale apparve, luminosa, l’immagine della Vergine. La chiesa è basilica minore dal 1920 e l’immagine fu incoronata nel 1942. La festa va dall’11 al 18 novembre, con le gaitas, la musica dello Zulia, per tutta la notte del 17.
-
-![La facciata gialla e le due torri della basilica](../../../assets/img/basilica-chiquinquira.jpg)
-*[Wilfredor · Wikimedia Commons · CC0](https://commons.wikimedia.org/wiki/File:Bas%C3%ADlica_de_la_Chinita.jpg)*
-
-### Plaza Bolívar e Palacio de los Cóndores
-
-*Istituzione · governo dello Stato di Zulia*
-
-Sede del governo dello Stato di Zulia, di fronte alla Plaza Bolívar e alla cattedrale di Maracaibo. Punto di partenza per girare a piedi il centro storico. [Wikipedia](https://es.wikipedia.org/wiki/Palacio_de_los_C%C3%B3ndores)
-
-Costruito tra il 1841 e il 1868 e ricostruito nel 1929, quando prese il nome dai condor sul tetto. L’inno dello Zulia, che cita il fulmine, fu cantato per la prima volta nel suo salone degli specchi, nel 1909.
-
-![Il Palacio de los Cóndores, bianco, con un condor sul tetto](../../../assets/img/palacio-condores.jpg)
-*[Wilfredor · Wikimedia Commons · CC0](https://commons.wikimedia.org/wiki/File:Centro_de_Maracaibo_en_Venezuela.JPG)*
-
-### Teatro Baralt
-
-*Patrimonio culturale*
-
-Teatro storico del centro di Maracaibo, dichiarato monumento nazionale. Ospita la musica, il teatro e gli eventi culturali della città. [Wikipedia](https://es.wikipedia.org/wiki/Teatro_Baralt)
-
-Il primo Teatro Baralt risale al 1847. Il secondo, inaugurato il 24 luglio 1883, fu nel 1896 il primo palcoscenico del Venezuela a proiettare un film. L’edificio attuale ha aperto nel 1932 ed è monumento nazionale dal 1981.
-
-![La sala del Teatro Baralt durante uno spettacolo](../../../assets/img/teatro-baralt.jpg)
-*[Wilfredor · Wikimedia Commons · CC0](https://commons.wikimedia.org/wiki/File:Teatro_Baralt_3.jpg)*
-
-### Vereda del Lago
-
-*Spazio pubblico · parco*
-
-Parco lineare sulla riva del lago a Maracaibo, con sentieri e vista aperta sull’acqua. Nelle notti limpide a volte si scorge un bagliore lontano verso sud. [Wikipedia](https://es.wikipedia.org/wiki/Vereda_del_Lago)
-
-![Alba sul lago dalla Vereda del Lago](../../../assets/img/vereda-del-lago.jpg)
-*[Wilfredor · Wikimedia Commons · CC0](https://commons.wikimedia.org/wiki/File:Sunrise_on_Vereda_del_Lago.jpg)*
-
-### Ponte Generale Rafael Urdaneta
-
-*Infrastruttura · 1962*
-
-Collega Maracaibo con la sponda orientale sopra lo stretto del lago. È lungo circa 8,7 km ed è stato inaugurato nel 1962. È la via stradale verso il sud del lago. [Wikipedia](https://es.wikipedia.org/wiki/Puente_General_Rafael_Urdaneta)
-
-Progettato dall’ingegnere italiano Riccardo Morandi, poggia su 134 piloni. Le campate centrali strallate misurano 235 m e lasciano passare navi alte fino a 45 m. Lo inaugurò il presidente Rómulo Betancourt il 24 agosto 1962.
-
-![Le torri di cemento del ponte Rafael Urdaneta, viste dall’acqua](../../../assets/img/urdaneta-bridge.jpg)
-*[Wilfredor · Wikimedia Commons · CC0](https://commons.wikimedia.org/wiki/File:General_Rafael_Urdaneta_Bridge_view_from_the_lake_to_Cabimas_side.jpg)*
-
-### Aeroporto internazionale La Chinita
-
-*Arrivo · aeroporto*
-
-Il principale aeroporto dello Zulia, a sud-ovest di Maracaibo (codice MAR). Per andare direttamente al sud del lago, l’aeroporto di El Vigía è più vicino. [Wikipedia](https://es.wikipedia.org/wiki/Aeropuerto_Internacional_La_Chinita)
-
-Aperto nel 1969, porta il nome della patrona dello Zulia. È uno degli aeroporti più trafficati del Paese.
-
-![La torre di controllo e i giardini d’ingresso dell’aeroporto La Chinita](../../../assets/img/la-chinita-airport.jpg)
-*[Wilfredor · Wikimedia Commons · CC0](https://commons.wikimedia.org/wiki/File:La_Chinita_International_Airport.jpg)*
