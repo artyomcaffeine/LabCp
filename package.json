@@ -17,6 +17,7 @@
     "app:assets": "capacitor-assets generate --ios --android"
   },
   "dependencies": {
+    "@astrojs/markdown-satteri": "^0.4.4",
     "@capacitor/android": "^8.5.3",
     "@capacitor/core": "^8.5.3",
     "@capacitor/geolocation": "^8.2.4",
