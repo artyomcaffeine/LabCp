@@ -37,5 +37,5 @@ export async function alternates(key?: PageKey) {
   return Promise.all(LANGS.map(async (lang) => ({ lang, href: key ? await urlOf(key, lang) : homeUrl(lang) })));
 }
 
-/* Un archivo de public/, bajo la ruta base: asset('img/venezuela.svg'). */
+/* Un archivo de public/, bajo la ruta base: asset('img/zulia.svg'). */
 export const asset = (path: string) => import.meta.env.BASE_URL.replace(/\/?$/, '/') + path;
