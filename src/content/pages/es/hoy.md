@@ -14,6 +14,17 @@ order: 6
 
 Aunque el pronóstico diga *poco probable*, el relámpago puede aparecer: se forma sobre el lago con las brisas de la noche, y los modelos del tiempo lo ven mal en una zona tan pequeña. Confirma con tu guía la misma tarde.
 
+### Qué es la «energía para tormentas»
+
+Los meteorólogos la llaman CAPE: la energía que puede ganar una burbuja de aire cálido y húmedo al subir. Cuanta más hay, más altas pueden crecer las nubes, y las nubes altas son las que producen rayos. En el Catatumbo, el CAPE junto con el viento nocturno del lago es la mejor guía de lo activa que será una noche.
+
+![Destellos lejanos dentro de las nubes sobre el lago](../../../assets/img/distant-flashes.jpg)
+*[Fernando Flores · Wikimedia Commons · CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning-_Rayo_del_Catatumbo_%2828619470016%29.jpg)*
+
+### Rayos en tiempo real
+
+El pronóstico dice lo que puede pasar. Para ver lo que está pasando, redes de voluntarios como [Blitzortung](https://www.blitzortung.org/) muestran los rayos en un mapa en tiempo real. Sobre Venezuela la cobertura es menor que en Europa y algunos destellos no se registran.
+
 ### Sin conexión
 
 La página guarda en tu teléfono el último pronóstico que descargó. Sin internet, lo muestra con su fecha. El resto de la guía funciona igual.

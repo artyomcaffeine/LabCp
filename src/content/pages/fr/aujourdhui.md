@@ -15,6 +15,17 @@ draft_translation: true
 
 Même si les prévisions disent *peu probable*, la foudre peut apparaître : elle se forme au-dessus du lac avec les brises de la nuit, et les modèles météo voient mal une zone aussi petite. Confirmez avec votre guide l’après-midi de l’excursion.
 
+### Ce que veut dire « énergie orageuse »
+
+Les météorologues l’appellent CAPE : l’énergie que peut gagner une bulle d’air chaud et humide en montant. Plus il y en a, plus les nuages peuvent grandir, et ce sont les nuages hauts qui produisent la foudre. Au Catatumbo, la CAPE, avec le vent nocturne du lac, est le meilleur indice de l’activité d’une nuit.
+
+![Éclairs lointains dans les nuages au-dessus du lac](../../../assets/img/distant-flashes.jpg)
+*[Fernando Flores · Wikimedia Commons · CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning-_Rayo_del_Catatumbo_%2828619470016%29.jpg)*
+
+### La foudre en temps réel
+
+Les prévisions disent ce qui peut arriver. Pour voir ce qui arrive, des réseaux bénévoles comme [Blitzortung](https://www.blitzortung.org/) cartographient les éclairs en temps réel. Au-dessus du Venezuela, la couverture est plus faible qu’en Europe et certains éclairs ne sont pas détectés.
+
 ### Hors connexion
 
 La page garde sur votre téléphone les dernières prévisions téléchargées. Sans internet, elle les affiche avec leur date. Le reste du guide fonctionne normalement.

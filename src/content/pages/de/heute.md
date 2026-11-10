@@ -15,6 +15,17 @@ draft_translation: true
 
 Auch wenn die Vorhersage *unwahrscheinlich* sagt, kann der Blitz erscheinen: Er entsteht mit den nächtlichen Winden über dem See, und Wettermodelle erfassen ein so kleines Gebiet schlecht. Frag am Nachmittag des Ausflugs deinen Guide.
 
+### Was „Gewitterenergie“ heißt
+
+Meteorologen nennen sie CAPE: die Energie, die eine aufsteigende Blase warmer, feuchter Luft gewinnen kann. Je mehr davon, desto höher können die Wolken wachsen, und hohe Wolken sind es, die Blitze erzeugen. Am Catatumbo ist CAPE zusammen mit dem Nachtwind über dem See der beste Hinweis darauf, wie aktiv eine Nacht wird.
+
+![Ferne Blitze in den Wolken über dem See](../../../assets/img/distant-flashes.jpg)
+*[Fernando Flores · Wikimedia Commons · CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning-_Rayo_del_Catatumbo_%2828619470016%29.jpg)*
+
+### Blitze in Echtzeit
+
+Die Vorhersage sagt, was passieren kann. Was gerade passiert, zeigen Freiwilligennetze wie [Blitzortung](https://www.blitzortung.org/) auf einer Echtzeitkarte. Über Venezuela ist die Abdeckung dünner als in Europa, und manche Blitze werden nicht erfasst.
+
 ### Offline
 
 Die Seite speichert die zuletzt geladene Vorhersage auf deinem Handy. Ohne Internet zeigt sie diese mit ihrem Datum. Der Rest des Führers funktioniert wie gewohnt.

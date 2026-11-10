@@ -134,6 +134,15 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .prose th { font: 10px/1.4 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-index); font-weight: 400; }
 .prose td:first-child { font: 500 24px/1.15 var(--font-display); color: var(--text); white-space: nowrap; }
 
+/* Foto dentro del texto: la imagen y, en la línea siguiente, su crédito en cursiva con enlace.
+   ![Palafitos de Ologá](../../../assets/img/ologa-stilt-houses.jpg)
+   *[Autora · Wikimedia Commons · CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:…)*
+   El crédito usa la letra de .mono-credit, como el de la foto del banner. */
+.prose p:has(> img) { margin: 36px 0; }
+.prose p > img { display: block; height: auto; background: var(--photo-ground); filter: saturate(.7); }
+.prose p > img + em { display: block; margin-top: 10px; font: 8px/1.5 var(--font-mono); font-style: normal; letter-spacing: .1em; text-transform: uppercase; color: var(--text-meta); }
+.prose p > img + em a { color: inherit; }
+
 /* Página de tours: la lista de operadores (TourList.astro). */
 .prose .tours { list-style: none; margin: 8px 0 28px; padding: 0; border-top: var(--border-hairline) solid var(--rule); }
 .prose .tours li { margin: 0; padding: 20px 0; border-bottom: var(--border-hairline) solid var(--rule); }

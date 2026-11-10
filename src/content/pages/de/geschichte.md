@@ -20,25 +20,58 @@ Alexander Walker verzeichnet die Namen, unter denen die Seefahrer es kannten: �
 
 Alexander von Humboldt beschreibt das Phänomen in seinem Reisebericht anhand der Berichte von M. Palacios. Es ist eine der ersten Beschreibungen, die in Europa verbreitet werden.
 
+Er nennt sie „elektrische Explosionen, die wie phosphoreszierende Blitze sind“, gestützt auf Palacios’ Buch *Viage de Varinas*.
+
+![Bildnis Alexander von Humboldts, 1843](../../../assets/img/humboldt-1843.jpg)
+*[Joseph Karl Stieler · Wikimedia Commons · Gemeinfrei](https://commons.wikimedia.org/wiki/File:Stieler,_Joseph_Karl_-_Alexander_von_Humboldt_-_1843.jpg)*
+
 ### 1841 · „Wie ein fortwährender Blitz“
 
 Der Geograf Agustín Codazzi beschreibt es als „einen fortwährenden Blitz“, der von weitem über dem Río Catatumbo zu sehen ist. Sein Werk verankert das Phänomen in der Kartografie Venezuelas.
+
+Er fügt hinzu, dass es, fast auf dem Meridian der Seemündung gelegen, den Seefahrern wie ein Leuchtturm den Weg weist.
+
+![Gestochenes Bildnis Agustín Codazzis](../../../assets/img/codazzi.jpg)
+*[Wikimedia Commons · Gemeinfrei](https://commons.wikimedia.org/wiki/File:Retrato_Agust%C3%ADn_Codazzi.jpg)*
+
+### 1966–1970 · Erste Expeditionen
+
+Der Wissenschaftler Andrés Zavrotsky und ein Team der Universidad de los Andes unternehmen drei Expeditionen nach Santa Bárbara del Zulia. Sie verorten die Zentren des Gewitters in den Sümpfen von Juan Manuel, westlich des Sees.
+
+### 1997–2000 · Die Methan-Hypothese
+
+Ein Team der Universidad de Carabobo unter Nelson Falcón dringt ins Innere der Sümpfe vor und schlägt Methan als eine Hauptursache vor. Keine Messung hat bisher Methan in den Gewitterwolken bestätigt.
+
+### 2005 · Naturerbe
+
+Der Bundesstaat Zulia erklärt den Blitz am 27. September 2005 zu seinem Naturerbe. Manche setzen sich weiterhin dafür ein, dass die Gegend UNESCO-Welterbe wird.
 
 ### 2010 · Die Stille
 
 Von Januar bis März 2010 blieb der Blitz aus, offenbar wegen einer schweren Dürre. Man spekulierte über sein endgültiges Verschwinden; mit den Regenfällen kehrte die Aktivität zurück.
 
+### 2014 · Ein Guinness-Rekord
+
+Am 28. Januar 2014, dem Tag des Zulia, erkennt Guinness World Records die Gegend als den Ort mit den meisten Blitzen pro Quadratkilometer und Jahr an.
+
 ### 2016 · Der blitzreichste Ort der Erde
 
 Eine Studie mit Daten des NASA-Sensors LIS (Albrecht et al., 2016) setzt den Maracaibo-See weltweit auf Platz eins, mit etwa 232,5 Blitzen pro km² und Jahr. Zuvor hatte Guinness ihn als größte Blitzkonzentration verzeichnet.
+
+Im selben Jahr veröffentlicht ein Team der Universidad del Zulia die erste saisonale Blitzvorhersage, gestützt auf den Nachtwind über dem See.
 
 ### 2018 · Dörfer in Bewegung
 
 Die Verlandung umgibt die Pfahlbauten von Congo Mirador mit Land. Die meisten Bewohner ziehen fort, und mehrere Häuser werden per Boot nach Ologá geschleppt, das zum Ausgangspunkt für Besucher wird.
 
+![Ologá, das Pfahlbaudorf, das Familien aus Congo Mirador aufnahm](../../../assets/img/ologa-community.jpg)
+*[Yoser Linares · Wikimedia Commons · CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Comunidad_de_Olog%C3%A1.jpg)*
+
 ## Das Haus des Donners.
 
 In der Sprache der Barí bedeutet Catatumbo „Haus des Donners“. Eine Erzählung, die dem Volk der Barí zugeschrieben wird, besagt, die Lichter am Himmel seien Cocuyos, Glühwürmchen, die sich jede Nacht versammeln, um Sabaseba zu ehren, den Schöpfer, der die Welt geordnet hat. Es ist eine Erzählung, keine meteorologische Erklärung.
+
+Die Barí leben im Becken des Catatumbo, auf beiden Seiten der Grenze zwischen Venezuela und Kolumbien. Sie widerstanden jahrhundertelang spanischen Expeditionen. Seitdem ist ihr Land geschrumpft, bedrängt von Siedlern und Ölbohrungen.
 
 ## Weitere Erzählungen vom See.
 
@@ -54,6 +87,11 @@ Die Lichter am Himmel seien Millionen von Glühwürmchen, die sich über dem See
 
 Für die Wayuu ist der Blitz ein Zeichen der Natur, das Respekt verlangt und Kraft schenkt. Der Blitz erscheint auch in Flagge und Wappen des Bundesstaats Zulia.
 
+Erzählungen der Wayuu und Yukpa sehen darin außerdem die Geister gefallener Wayuu, die als Botschaft am Himmel leuchten.
+
+![Die Flagge des Bundesstaats Zulia, mit einem Blitz](../../../assets/img/flag-zulia.jpg)
+*[Wikimedia Commons · Gemeinfrei](https://commons.wikimedia.org/wiki/File:Flag_of_Zulia_State.svg)*
+
 ### Drake und die erleuchtete Nacht
 
 *Legende · von den Quellen widerlegt*
@@ -65,5 +103,11 @@ Oft heißt es, der Blitz habe 1595 die Flotte von Francis Drake vor Maracaibo ve
 *Volkserzählung*
 
 Einer verbreiteten Erzählung zufolge zeigten die Blitze in der Seeschlacht auf dem Maracaibo-See 1823 der patriotischen Flotte die Position der royalistischen Schiffe. Das ist Volksgedächtnis, keine belegte Tatsache.
+
+Die Schlacht selbst ist belegt: Am 24. Juli 1823 besiegte die Flotte von José Prudencio Padilla das spanische Geschwader und besiegelte die Unabhängigkeit Venezuelas und Neugranadas. Beide Länder feiern das Datum bis heute als Tag der Marine.
+
+### In Liedern
+
+Der Blitz kommt in der Hymne des Bundesstaats Zulia von Udón Pérez vor und in vielen Gaitas, der Musik des Zulia.
 
 > Diese Erzählungen werden als kulturelles Gedächtnis gesammelt, mit Quelle, wo sie bekannt ist. Wo eine Erzählung den Quellen widerspricht, sagen wir es.
