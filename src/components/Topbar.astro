@@ -1,9 +1,9 @@
 ---
-/* Marca, menú, bandera, selector de idioma (desplegable) y (en teléfonos) el botón del menú. */
+/* Marca (con las banderas), menú, selector de idioma (desplegable) y (en teléfonos) el botón del menú. */
 import Brand from './Brand.astro';
 import Globe from './Globe.astro';
 import { LANG_NAMES, useTranslations, type Lang } from '../i18n/ui';
-import { asset, pagesIn, pageUrl, type PageKey } from '../lib/pages';
+import { pagesIn, pageUrl, type PageKey } from '../lib/pages';
 
 interface Props { lang: Lang; current?: PageKey; alternates: { lang: Lang; href: string }[] }
 const { lang, current, alternates } = Astro.props;
@@ -18,7 +18,6 @@ const nav = await pagesIn(lang);
     ))}
   </nav>
   <div class="ct-nav-actions">
-    <img class="ct-flag" src={asset('img/venezuela.svg')} width="30" height="20" alt={t('flag.alt')}>
     <!-- Selector de idioma: un desplegable nativo (<details>), así se abre también sin JavaScript. Lista todos los
          idiomas de LANGS, sean cuantos sean; cada uno lleva a la misma página en ese idioma. -->
     <details class="lang-menu" data-lang-menu>

@@ -1,14 +1,14 @@
 /* Textos de la interfaz (menús, botones, página de inicio) en todos los idiomas.
    El contenido de las páginas está en Markdown, en src/content/pages/<lang>/.
    Cada idioma se tipa contra `es`, así que una clave que falte es un error de tipos.
-   de y fr son traducciones en borrador: que las revise un hablante nativo. */
+   de, fr e it son traducciones en borrador: que las revise un hablante nativo. */
 
-export const LANGS = ['es', 'en', 'de', 'fr'] as const;
+export const LANGS = ['es', 'en', 'de', 'fr', 'it'] as const;
 export type Lang = (typeof LANGS)[number];
 export const DEFAULT_LANG: Lang = 'es';
 
 /* Cada idioma se nombra a sí mismo, para que cada visitante reconozca el suyo. */
-export const LANG_NAMES: Record<Lang, string> = { es: 'Español', en: 'English', de: 'Deutsch', fr: 'Français' };
+export const LANG_NAMES: Record<Lang, string> = { es: 'Español', en: 'English', de: 'Deutsch', fr: 'Français', it: 'Italiano' };
 
 const es = {
   'site.title': 'Catatumbo · Guía del relámpago',
@@ -380,7 +380,99 @@ const fr: UI = {
   'picker.title': 'Choisissez votre langue',
 };
 
-const UI_TEXT: Record<Lang, UI> = { es, en, de, fr };
+const it: UI = {
+  'site.title': 'Catatumbo · Guida al fulmine',
+  'site.desc': 'Una guida per visitare il lago di Maracaibo e vedere il fulmine del Catatumbo: che cos’è, come arrivare, luoghi, storia e mito.',
+  'brand.aria': 'Catatumbo, home',
+  'brand.tagline': 'Il Faro dello Zulia',
+  'nav.aria': 'Navigazione principale',
+  'nav.lang': 'Lingua',
+  'menu.open': 'Apri il menu',
+  'now.aria': 'Ora e meteo al Catatumbo',
+  'flag.alt': 'Bandiera del Venezuela',
+  'hero.alt': 'Fulmini sulle acque del lago di Maracaibo, di notte',
+  'hero.title': 'Dove la notte',
+  'hero.titleEm': 'si accende.',
+  'hero.intro': 'Una guida per avvicinarsi al fulmine del Catatumbo: che cos’è, come arrivare, dove mettersi e che cosa ne raccontano la storia e la memoria del lago.',
+  'hero.cta': 'Esplora la guida',
+  'hero.scroll': 'Scorri verso il basso',
+  'welcome.index': 'Benvenuti',
+  'welcome.title': 'Benvenuti sul lago dei fulmini.',
+  'welcome.body': 'Nel sud del lago di Maracaibo, quasi ogni notte, un temporale si accende sopra l’acqua e le paludi. Si vede dalle barche, dai villaggi su palafitte e dalla riva, a volte per ore. Questa guida ti aiuta a capire che cosa succede, a scegliere la tua notte e ad arrivare con rispetto per chi vive lì.',
+  'welcome.photoAlt': 'Fulmini sopra una fila di alberi sulla riva',
+  'cards.index': 'La guida',
+  'cards.title': 'Da dove cominciare.',
+  'card.go': 'Apri ↘',
+  'tips.index': 'Prima di partire',
+  'tips.title': 'Consigli di viaggio.',
+  'tips.c1h': 'Come arrivare',
+  'tips.c1': 'In barca da Puerto Concha. L’aeroporto più vicino è El Vigía.',
+  'tips.c2h': 'Quando andare',
+  'tips.c2': 'Dal tramonto. Da settembre a novembre sono i mesi più attivi.',
+  'tips.c3h': 'Cosa portare',
+  'tips.c3': 'Repellente, impermeabile, torcia frontale, contanti e una sacca stagna.',
+  'tips.c4h': 'Sicurezza',
+  'tips.c4': 'Mai in barca sotto il temporale. Emergenze: VEN 911.',
+  'tips.more': 'Tutte le informazioni pratiche',
+  'tours.title': 'Operatori locali.',
+  'tours.empty': 'Stiamo ancora verificando l’elenco degli operatori. Nel frattempo, usa le domande qui sopra per sceglierne uno.',
+  'tours.base': 'Parte da',
+  'tours.langs': 'Lingue',
+  'tours.reviewed': 'Verificato',
+  'tours.disclaimer': 'Questo elenco è solo indicativo: non raccomandiamo nessun operatore in particolare. Prezzi, orari e condizioni cambiano; confermali direttamente con l’operatore prima di partire.',
+  'today.index': 'Previsioni',
+  'today.tonight': 'Stanotte',
+  'today.nights': 'Le prossime notti',
+  'today.where': 'Congo Mirador · ora del Venezuela',
+  'today.night': 'Notte',
+  'today.storm': 'Temporale',
+  'today.rain': 'Pioggia',
+  'today.rainLabel': 'Probabilità di pioggia, dalle 18:00 alle 06:00',
+  'today.wind': 'Vento',
+  'today.sunset': 'Tramonto',
+  'today.high': 'Probabile',
+  'today.mid': 'Possibile',
+  'today.low': 'Poco probabile',
+  'today.loading': 'Caricamento delle previsioni…',
+  'today.updated': 'Aggiornato',
+  'today.offline': 'Offline: queste sono le ultime previsioni salvate.',
+  'today.none': 'Offline. Le previsioni compariranno quando tornerà internet; il resto della guida funziona come sempre.',
+  'today.nojs': 'Le previsioni richiedono JavaScript.',
+  'today.source': 'Dati meteo',
+  'today.you': 'La tua posizione',
+  'today.distance': 'Dove sei?',
+  'today.private': 'La tua posizione viene usata solo sul tuo telefono: non viene salvata né inviata.',
+  'today.locate': 'Mostra la mia posizione',
+  'today.locating': 'Ricerca della tua posizione…',
+  'today.denied': 'La guida non ha il permesso di usare la tua posizione. Puoi concederlo nelle impostazioni del telefono o del browser.',
+  'today.unavailable': 'Impossibile trovare la tua posizione. Controlla che la localizzazione del telefono sia attiva.',
+  'today.dirs': 'N NE E SE S SO O NO',
+  'today.pier': 'Imbarcadero',
+  'today.stilts': 'Villaggio su palafitte',
+  'today.recenter': 'Centra su di me',
+  'today.accuracy': 'Precisione',
+  'today.places': 'Luoghi',
+  'today.mapOffline': 'Offline: mappa semplificata.',
+  'today.mapError': 'Questo dispositivo non può mostrare la mappa.',
+  'today.mapNojs': 'La mappa richiede JavaScript.',
+  'today.zoomIn': 'Ingrandisci',
+  'today.zoomOut': 'Riduci',
+  'today.credits': 'Crediti della mappa',
+  'today.gestureTouch': 'Usa due dita per spostare la mappa',
+  'today.gestureWheel': 'Usa Ctrl + rotellina per ingrandire la mappa',
+  'today.gestureMac': 'Usa ⌘ + rotellina per ingrandire la mappa',
+  'crumb.aria': 'Percorso di navigazione',
+  'crumb.home': 'Home',
+  'footer.nav': 'Pagine della guida',
+  'footer.credits': 'Foto: Fernando Flores, Wikimedia Commons',
+  'footer.privacy': 'Privacy',
+  'footer.logoName': 'Catatumbo Digital',
+  'footer.logoTagline': 'Ecosistema tecnologico del fulmine',
+  'top.label': 'Su',
+  'picker.title': 'Scegli la tua lingua',
+};
+
+const UI_TEXT: Record<Lang, UI> = { es, en, de, fr, it };
 
 export type UIKey = keyof UI;
 
