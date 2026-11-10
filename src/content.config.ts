@@ -37,7 +37,7 @@ const tours = defineCollection({
     /* Última vez que alguien comprobó el enlace y los datos. */
     reviewed: z.coerce.date(),
     /* Nota corta opcional por idioma; si falta en un idioma, no se muestra. */
-    note: z.object({ es: z.string(), en: z.string(), de: z.string(), fr: z.string() }).partial().optional(),
+    note: z.object({ es: z.string(), en: z.string(), de: z.string(), fr: z.string(), it: z.string() }).partial().optional(),
   }),
 });
 
