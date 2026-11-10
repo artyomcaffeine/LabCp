@@ -24,6 +24,7 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 /* Barra semitransparente: deja entrever la página que pasa por debajo. 90 % de opacidad, en claro y en oscuro. */
 .ct-topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
+
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }
 .ct-menu-button.is-open .i-menu { display: none; }
@@ -142,6 +143,20 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .prose p > img { display: block; height: auto; background: var(--photo-ground); filter: saturate(.7); }
 .prose p > img + em { display: block; margin-top: 10px; font: 8px/1.5 var(--font-mono); font-style: normal; letter-spacing: .1em; text-transform: uppercase; color: var(--text-meta); }
 .prose p > img + em a { color: inherit; }
+
+/* Fila de texto y foto, como en kyoto.travel: lib/photo-rows.ts la arma y la foto alterna de lado,
+   derecha (.photo-right) e izquierda (.photo-left). La foto se lleva la columna más ancha.
+   Hasta 1024 px la fila se deshace: la foto va debajo del texto, como antes. */
+.prose > .photo-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 72px); align-items: center; max-width: 1120px; margin: 40px 0; }
+.prose > .photo-left { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+.prose > .photo-left > p { order: -1; }
+.prose .photo-row > p { margin: 0; }
+.photo-row-text > :first-child { margin-top: 0; }
+.photo-row-text > :last-child { margin-bottom: 0; }
+@media (max-width: 1024px) {
+  .prose > .photo-row { display: block; max-width: 680px; }
+  .prose .photo-row > p { margin-top: 36px; }
+}
 
 /* Página de tours: la lista de operadores (TourList.astro). */
 .prose .tours { list-style: none; margin: 8px 0 28px; padding: 0; border-top: var(--border-hairline) solid var(--rule); }
