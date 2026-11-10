@@ -25,6 +25,15 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .ct-topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
 
+/* Título de la marca, tan grande como deja la barra: crece con el ancho hasta quedar a 16 px del menú
+   (medido en los 5 idiomas; manda el más largo) o hasta el alto de la barra (40 px).
+   Entre 651 y 1060 px el menú ya llena la barra: se queda en 11 px. Los tramos siguen los cortes del
+   menú (bundle.css): desde 1260 px el menú se separa más y el título vuelve a empezar más pequeño.
+   Hasta 1259 px el tope baja a 34 px: el menú en francés no deja más.
+   Ejemplos: 390 px → 24 px · 1200 px → 32 px · 1440 px → 37 px. */
+@media (max-width: 650px) { .ct-brand .mono-brand { font-size: clamp(11px, 25.7vw - 76px, 30px); } }
+@media (min-width: 1061px) and (max-width: 1259px) { .ct-brand .mono-brand { font-size: clamp(11px, 16.6vw - 167px, 34px); } }
+@media (min-width: 1260px) { .ct-brand .mono-brand { font-size: clamp(11px, 10.9vw - 120px, 40px); } }
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }
 .ct-menu-button.is-open .i-menu { display: none; }
