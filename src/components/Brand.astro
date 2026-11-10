@@ -7,7 +7,8 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 <a class="ct-brand" href={homeUrl(lang)} aria-label={t('brand.aria')}>
-  <!-- Bandera del Zulia como insignia: decorativa, el aria-label del enlace ya nombra la marca. -->
-  <img class="ct-brand-flag" src={asset('img/zulia.svg')} width="36" height="24" alt="">
+  <!-- Insignia: bandera de Venezuela y bandera del Zulia. El aria-label del enlace ya nombra la marca. -->
+  <img class="ct-flag" src={asset('img/venezuela.svg')} width="30" height="20" alt={t('flag.alt')}>
+  <img class="ct-flag" src={asset('img/zulia.svg')} width="30" height="20" alt="">
   <span class="mono-brand">CATATUMBO<br><small>{t('brand.tagline')}</small></span>
 </a>

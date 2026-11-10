@@ -24,9 +24,6 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 /* Barra semitransparente: deja entrever la página que pasa por debajo. 90 % de opacidad, en claro y en oscuro. */
 .ct-topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
-
-/* Insignia de la marca: la bandera del Zulia, con el mismo borde que la de Venezuela (.ct-flag). */
-.ct-brand-flag { display: block; flex: none; box-shadow: var(--flag-edge); }
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }
 .ct-menu-button.is-open .i-menu { display: none; }
@@ -240,7 +237,6 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .ct-nav { top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); max-height: calc(100dvh - var(--topbar-height-sm) - env(safe-area-inset-top, 0px)); overflow-y: auto; overscroll-behavior: contain; }
   .ct-nav a { text-align: center; }
   .ct-footer { padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
-  .ct-flag { display: none; }
   .now { top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px) + 16px); right: calc(16px + env(safe-area-inset-right, 0px)); padding: 9px 2px; font-size: 12px; }
   .now-part { padding: 0 12px; }
   /* En teléfonos el widget ocupa el ancho de la ruta de navegación: el banner empieza debajo. */
