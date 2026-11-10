@@ -25,12 +25,25 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .ct-topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
 
-/* Título de la marca en Fraunces, la letra de los títulos de la guía. El lema de debajo sigue en la mono.
-   Solo en la barra superior: el pie usa .mono-brand para su propio logo. */
-.ct-topbar .ct-brand .mono-brand { font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: .02em; line-height: 1; }
-.ct-topbar .ct-brand .mono-brand small { font-family: var(--font-mono); font-weight: 400; }
-/* Entre 651 y 1020 px el menú en línea deja poco sitio: el título ocupa lo mismo que la versión mono (≈ 70 px). */
-@media (min-width: 651px) and (max-width: 1020px) { .ct-topbar .ct-brand .mono-brand { font-size: 10.3px; } }
+/* Título de la marca en Federo, letra art déco de carteles de viaje. El lema de debajo sigue en la mono.
+   Solo en la barra superior: el pie usa .mono-brand para su propio logo.
+   Las tres medidas del bloque de texto viven aquí, para que la bandera mida lo mismo que título + lema:
+     ┌──────┐ CATATUMBO            ← --brand-title
+     │ flag │   (hueco)            ← --brand-gap
+     └──────┘ EL FARO DEL ZULIA    ← --brand-tagline */
+.ct-topbar .ct-brand { --brand-title: 15.6px; --brand-gap: 4px; --brand-tagline: 8px; }
+.ct-topbar .ct-brand .mono-brand { font-family: var(--font-brand); font-size: var(--brand-title); font-weight: 400; letter-spacing: .06em; line-height: 1; }
+.ct-topbar .ct-brand .mono-brand small { font-family: var(--font-mono); font-weight: 400; font-size: var(--brand-tagline); margin-top: var(--brand-gap); }
+
+/* La bandera del Zulia, del alto del bloque de texto; el ancho sale de su proporción 3:2. */
+.ct-topbar .ct-brand .ct-flag { height: calc(var(--brand-title) + var(--brand-gap) + var(--brand-tagline)); width: auto; }
+
+/* Entre 651 y 1040 px el menú en línea deja poco sitio: título y bandera ocupan lo mismo que antes
+   (título mono de ≈ 70 px y bandera de 30 × 20 px, casi el alto del texto a este tamaño). */
+@media (min-width: 651px) and (max-width: 1040px) {
+  .ct-topbar .ct-brand { --brand-title: 10.2px; }
+  .ct-topbar .ct-brand .ct-flag { height: 20px; }
+}
 
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }

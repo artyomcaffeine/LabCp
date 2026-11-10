@@ -3,6 +3,8 @@
 @font-face { font-family: 'DM Sans'; src: url('../assets/fonts/DMSans-Variable.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
 @font-face { font-family: 'DM Mono'; src: url('../assets/fonts/DMMono-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: 'DM Mono'; src: url('../assets/fonts/DMMono-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+/* Federo (SIL Open Font License 1.1, ver Federo-OFL.txt): solo el título de la marca. */
+@font-face { font-family: 'Federo'; src: url('../assets/fonts/Federo-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 :root {
   --ink: #192c30;
   --deep: #142d31;
@@ -71,6 +73,7 @@
   --map-controls: #d8d3bf;
   --map-controls-text: #435854;
   --font-display: 'Fraunces', Georgia, serif;
+  --font-brand: 'Federo', 'Fraunces', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'DM Mono', ui-monospace, monospace;
   --topbar-height: 70px;
